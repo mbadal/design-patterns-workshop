@@ -15,7 +15,7 @@ require 'vendor/autoload.php';
  *      - Core riesenia (logiku) implementujete do 'Delvesoft\DesignPattern\AbstractFactory'
  */
 
-function createComponents($factory)
+function testFactory($factory)
 {
     /** @var ComponentInterface $hood */
     $hood = $factory->createHood();
