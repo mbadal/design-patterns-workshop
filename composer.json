@@ -8,7 +8,9 @@
 			"email": "matejbadal@gmail.com"
 		}
 	],
-	"require": {},
+	"require": {
+		"carbondate/carbon": "^1.33"
+	},
 	"require-dev": {
 		"phpunit/phpunit": "^7.4"
 	},
