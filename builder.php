@@ -15,3 +15,9 @@ require 'vendor/autoload.php';
  *      - nesmiete zasiahnut do rozhrania existujucich objektov v nemespace 'Delvesoft\Sandwich'
  *      - vsetky vase triedy implementujte do 'Delvesoft\DesignPattern\Builder'
  */
+
+try {
+    //@TODO
+} catch (Exception $e) {
+    error_log($e->getMessage());
+}
