@@ -12,3 +12,5 @@ require 'vendor/autoload.php';
  *      - upravte vhodne strukturu 'Delvesoft\Car\Component\*, '
  *      - Core riesenia (logiku) implementujete do 'Delvesoft\DesignPattern\AbstractFactory'
  */
+
+
