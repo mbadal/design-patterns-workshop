@@ -13,5 +13,5 @@ require 'vendor/autoload.php';
  *      - cisto hovadzi sendvic
  * - Podmienky:
  *      - nesmiete zasiahnut do rozhrania existujucich objektov v nemespace 'Delvesoft\Sandwich'
- *      -
+ *      - vsetky vase triedy implementujte do 'Delvesoft\DesignPattern\Builder'
  */
