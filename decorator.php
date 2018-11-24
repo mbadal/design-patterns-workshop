@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Carbon\Carbon;
 use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatter;
 use Delvesoft\User\Entity\RegisteredUser;
+use Delvesoft\User\Value\FormatType;
 use Delvesoft\User\Value\Gender;
 use Delvesoft\User\Value\Name;
 
@@ -44,16 +45,32 @@ $regularUser = new RegisteredUser(
  */
 
 /* 1. oslovenie */
+$formatType = FormatType::createFromInteger(FormatType::TYPE_1);
 $formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser), "\n";
-echo $formatter->formatText($easterUser), "\n";
-echo $formatter->formatText($regularUser), "\n";
+echo $formatter->formatText($christmasUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($regularUser, $formatType), "\n";
+echo "\n";
 
 /* 2. oslovenie */
-/* @TODO */
+$formatType = FormatType::createFromInteger(FormatType::TYPE_2);
+$formatter = new RegisteredUserTextFormatter();
+echo $formatter->formatText($christmasUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($regularUser, $formatType), "\n";
+echo "\n";
 
 /* 3. oslovenie */
-/* @TODO */
+$formatType = FormatType::createFromInteger(FormatType::TYPE_3);
+$formatter = new RegisteredUserTextFormatter();
+echo $formatter->formatText($christmasUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($regularUser, $formatType), "\n";
+echo "\n";
 
 /* 4. oslovenie */
-/* @TODO */
+$formatType = FormatType::createFromInteger(FormatType::TYPE_4);
+$formatter = new RegisteredUserTextFormatter();
+echo $formatter->formatText($christmasUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($regularUser, $formatType), "\n";
