@@ -15,4 +15,12 @@ class RacingTire implements TireInterface
     {
         return NameEnum::NAME_RACING;
     }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Tire of vendor: [{$this->getVendor()}]";
+    }
 }

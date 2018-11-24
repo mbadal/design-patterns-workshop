@@ -16,4 +16,11 @@ class SparcoHood implements HoodInterface
         return NameEnum::NAME_SPARCO;
     }
 
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Hood of vendor: [{$this->getVendor()}]";
+    }
 }

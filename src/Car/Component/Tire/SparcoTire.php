@@ -16,4 +16,11 @@ class SparcoTire implements TireInterface
         return NameEnum::NAME_SPARCO;
     }
 
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Tire of vendor: [{$this->getVendor()}]";
+    }
 }

@@ -15,4 +15,12 @@ class RacingHood implements HoodInterface
     {
         return NameEnum::NAME_RACING;
     }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Hood of vendor: [{$this->getVendor()}]";
+    }
 }
