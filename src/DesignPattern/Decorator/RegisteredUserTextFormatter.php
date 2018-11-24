@@ -19,17 +19,7 @@ class RegisteredUserTextFormatter implements RegisteredUserTextFormatterInterfac
     {
         $output = '';
         if ($formatType->isFirstType()) {
-            $output .= $user->isMale() ? 'Pan ' : 'Pani ';
-            $output .= $user->getName() . ' ';
-            if ($user->wasRegisteredDuringChristmas()) {
-                $output .= 'Stastne a vesele vianoce';
-            } elseif ($user->wasRegisteredDuringEaster()) {
-                $output .= 'Veselu Velku Noc';
-            } else {
-                $output .= 'Prijemny den';
-            }
-
-            return $output;
+            return $user->getName();
         }
 
         if ($formatType->isSecondType()) {
