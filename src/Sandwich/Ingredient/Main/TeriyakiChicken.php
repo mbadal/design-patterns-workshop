@@ -9,8 +9,8 @@ class TeriyakiChicken implements MainInterface
     /**
      * @return string
      */
-    public function getMainType(): string
+    public function getName(): string
     {
-        return static::TYPE_MEAT;
+        return 'Teriyaki chicken';
     }
 }

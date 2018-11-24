@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Delvesoft\Sandwich\Ingredient\Cheese;
 
-interface CheeseInterface
+use Delvesoft\Sandwich\Ingredient\IngredientInterface;
+
+interface CheeseInterface extends IngredientInterface
 {
 }

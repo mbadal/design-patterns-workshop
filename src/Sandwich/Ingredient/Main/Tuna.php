@@ -9,8 +9,8 @@ class Tuna implements MainInterface
     /**
      * @return string
      */
-    public function getMainType(): string
+    public function getName(): string
     {
-        return static::TYPE_FISH;
+        return 'Tuna';
     }
 }

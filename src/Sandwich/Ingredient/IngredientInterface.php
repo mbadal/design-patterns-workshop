@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delvesoft\DesignPatterns\Creational\Builder\Ingredient;
+namespace Delvesoft\Sandwich\Ingredient;
 
 interface IngredientInterface
 {

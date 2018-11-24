@@ -17,7 +17,7 @@ final class Sandwich implements SandwichInterface
     private $vegetables = [];
 
     /** @var CheeseInterface */
-    private $cheese = [];
+    private $cheese;
 
     /**
      * @param MainInterface $main
@@ -41,5 +41,29 @@ final class Sandwich implements SandwichInterface
     public function addCheese(CheeseInterface $cheese)
     {
         $this->cheese = $cheese;
+    }
+
+    public function printIngredients()
+    {
+        $outputParts = [];
+        $index = 0;
+        if (!is_null($this->main)) {
+            $outputParts[$index++] = $this->main->getName();
+        }
+
+        if (!is_null($this->cheese)) {
+            $outputParts[$index++] = $this->cheese->getName();
+        }
+
+        /** @var VegetableInterface $item */
+        $vegetableString = implode(', ', array_map(function ($item) {
+            return $item->getName();
+        }, $this->vegetables));
+
+        if (!empty($vegetableString)) {
+            $outputParts[$index] = $vegetableString;
+        }
+
+        echo 'Sandwich: ', implode('; ', $outputParts);
     }
 }

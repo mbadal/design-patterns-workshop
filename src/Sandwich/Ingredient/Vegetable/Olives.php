@@ -6,5 +6,11 @@ namespace Delvesoft\Sandwich\Ingredient\Vegetable;
 
 class Olives implements VegetableInterface
 {
-
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'Olives';
+    }
 }

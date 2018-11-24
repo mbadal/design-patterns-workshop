@@ -4,13 +4,8 @@ declare(strict_types=1);
 
 namespace Delvesoft\Sandwich\Ingredient\Main;
 
-interface MainInterface
-{
-    const TYPE_MEAT = 'meat';
-    const TYPE_FISH = 'fish';
+use Delvesoft\Sandwich\Ingredient\IngredientInterface;
 
-    /**
-     * @return string
-     */
-    public function getMainType(): string;
+interface MainInterface extends IngredientInterface
+{
 }

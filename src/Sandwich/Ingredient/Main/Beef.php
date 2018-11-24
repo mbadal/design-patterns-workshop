@@ -6,8 +6,11 @@ namespace Delvesoft\Sandwich\Ingredient\Main;
 
 class Beef implements MainInterface
 {
-    public function getMainType(): string
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return static::TYPE_MEAT;
+        return 'Beef';
     }
 }

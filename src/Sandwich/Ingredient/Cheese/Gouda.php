@@ -6,5 +6,11 @@ namespace Delvesoft\Sandwich\Ingredient\Cheese;
 
 class Gouda implements CheeseInterface
 {
-
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'Gouda';
+    }
 }

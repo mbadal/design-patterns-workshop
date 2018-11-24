@@ -24,4 +24,9 @@ interface SandwichInterface
      * @param CheeseInterface $cheese
      */
     public function addCheese(CheeseInterface $cheese);
+
+    /**
+     * @return void
+     */
+    public function printIngredients();
 }
