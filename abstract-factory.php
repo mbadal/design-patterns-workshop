@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use Delvesoft\Car\Component\ComponentInterface;
+use Delvesoft\DesignPattern\AbstractFactory\ComponentFactoryInterface;
+use Delvesoft\DesignPattern\AbstractFactory\RacingFactory;
+use Delvesoft\DesignPattern\AbstractFactory\SparcoFactory;
 
 require 'vendor/autoload.php';
 
@@ -16,13 +18,16 @@ require 'vendor/autoload.php';
  */
 
 
-function createComponents($factory)
+/**
+ * @param ComponentFactoryInterface $factory
+ */
+function testFactory(ComponentFactoryInterface $factory)
 {
-    /** @var ComponentInterface $hood */
     $hood = $factory->createHood();
-
-    /** @var ComponentInterface $tire */
     $tire = $factory->createTire();
 
-    printf('Products: %s, %s', $hood->getFullName(), $tire->getFullName());
+    printf("Products: %s, %s\n", $hood->getFullName(), $tire->getFullName());
 }
+
+testFactory(new SparcoFactory());
+testFactory(new RacingFactory());
