@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Delvesoft\Car\Component\ComponentInterface;
+
 require 'vendor/autoload.php';
 
 /**
@@ -12,3 +14,14 @@ require 'vendor/autoload.php';
  *      - upravte vhodne strukturu 'Delvesoft\Car\Component\*, '
  *      - Core riesenia (logiku) implementujete do 'Delvesoft\DesignPattern\AbstractFactory'
  */
+
+function createComponents($factory)
+{
+    /** @var ComponentInterface $hood */
+    $hood = $factory->createHood();
+
+    /** @var ComponentInterface $tire */
+    $tire = $factory->createTire();
+
+    printf('Products: %s, %s', $hood->getFullName(), $tire->getFullName());
+}

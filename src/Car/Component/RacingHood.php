@@ -13,4 +13,12 @@ class RacingHood implements ComponentInterface
     {
         return 'Racing';
     }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Hood of vendor: [{$this->getVendor()}]";
+    }
 }

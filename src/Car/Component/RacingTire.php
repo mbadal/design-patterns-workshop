@@ -15,4 +15,12 @@ class RacingTire implements ComponentInterface
     {
         return 'Racing';
     }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Tire of vendor: [{$this->getVendor()}]";
+    }
 }

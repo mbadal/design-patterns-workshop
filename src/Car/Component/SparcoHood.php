@@ -13,5 +13,11 @@ class SparcoHood implements ComponentInterface
     {
         return 'Sparco';
     }
-
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Hood of vendor: [{$this->getVendor()}]";
+    }
 }

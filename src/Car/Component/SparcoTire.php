@@ -16,4 +16,11 @@ class SparcoTire implements ComponentInterface
         return 'Sparco';
     }
 
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "Tire of vendor: [{$this->getVendor()}]";
+    }
 }
