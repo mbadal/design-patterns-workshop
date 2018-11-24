@@ -23,21 +23,21 @@ class RegisteredUserTextFormatter implements RegisteredUserTextFormatterInterfac
         }
 
         if ($formatType->isSecondType()) {
-            $output .= $user->getName() . ' ';
-            if ($user->wasRegisteredDuringChristmas()) {
-                $output .= 'Stastne a vesele vianoce';
-            } elseif ($user->wasRegisteredDuringEaster()) {
-                $output .= 'Veselu Velku Noc';
-            } else {
-                $output .= 'Prijemny den';
-            }
+            $output .= $user->isMale() ? 'Pan ' : 'Pani ';
+            $output .= $user->getName();
 
             return $output;
         }
 
         if ($formatType->isThirdType()) {
-            $output .= $user->getName() . ' ';
-            $output .= $user->isMale() ? 'Pan' : 'Pani';
+            if ($user->wasRegisteredDuringChristmas()) {
+                $output .= 'Stastne a vesele vianoce ';
+            } elseif ($user->wasRegisteredDuringEaster()) {
+                $output .= 'Veselu Velku Noc ';
+            } else {
+                $output .= 'Prijemny den ';
+            }
+            $output .= $user->getName();
 
             return $output;
         }
@@ -52,6 +52,21 @@ class RegisteredUserTextFormatter implements RegisteredUserTextFormatterInterfac
             }
 
             $output .= $user->isMale() ? 'Pan ' : 'Pani ';
+            $output .= $user->getName();
+
+            return $output;
+        }
+
+        if ($formatType->isFifthType()) {
+            $output .= $user->isMale() ? 'Pan ' : 'Pani ';
+            if ($user->wasRegisteredDuringChristmas()) {
+                $output .= 'Stastne a vesele vianoce ';
+            } elseif ($user->wasRegisteredDuringEaster()) {
+                $output .= 'Veselu Velku Noc ';
+            } else {
+                $output .= 'Prijemny den ';
+            }
+            
             $output .= $user->getName();
 
             return $output;

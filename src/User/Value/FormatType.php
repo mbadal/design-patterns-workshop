@@ -10,6 +10,7 @@ class FormatType
     const TYPE_2 = 2;
     const TYPE_3 = 3;
     const TYPE_4 = 4;
+    const TYPE_5 = 5;
 
     /** @var int */
     private $value;
@@ -34,6 +35,7 @@ class FormatType
             static::TYPE_2 => true,
             static::TYPE_3 => true,
             static::TYPE_4 => true,
+            static::TYPE_5 => true,
         ];
 
         if (!isset($checkArray[$value])) {
@@ -73,5 +75,13 @@ class FormatType
     public function isFourthType(): bool
     {
         return ($this->value === static::TYPE_4);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFifthType(): bool
+    {
+        return ($this->value === static::TYPE_5);
     }
 }

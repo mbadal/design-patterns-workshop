@@ -75,3 +75,11 @@ $formatter = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
 echo $formatter->formatText($easterUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
+echo "\n";
+
+/* 5. oslovenie */
+$formatType = FormatType::createFromInteger(FormatType::TYPE_5);
+$formatter = new RegisteredUserTextFormatter();
+echo $formatter->formatText($christmasUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($regularUser, $formatType), "\n";
