@@ -3,14 +3,11 @@
 declare(strict_types=1);
 
 use Carbon\Carbon;
-use Delvesoft\DesignPattern\Decorator\FormatterRegistry;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFifth;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFirst;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFourth;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterSecond;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterThird;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserNameFormatter;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterInterface;
+use Delvesoft\DesignPattern\Decorator\SalutationDecorator;
+use Delvesoft\DesignPattern\Decorator\TimeOfYearDecorator;
 use Delvesoft\User\Entity\RegisteredUser;
-use Delvesoft\User\Value\FormatType;
 use Delvesoft\User\Value\Gender;
 use Delvesoft\User\Value\Name;
 
@@ -51,52 +48,44 @@ $regularUser = new RegisteredUser(
  */
 
 /**
- * @param FormatType        $type
- * @param RegisteredUser    $user
- * @param FormatterRegistry $registry
+ * @param RegisteredUserTextFormatterInterface $formatter
+ * @param RegisteredUser                       $registeredUser
  */
-function renderUserInfo(FormatType $type, RegisteredUser $user, FormatterRegistry $registry)
+function renderUserInfo(RegisteredUserTextFormatterInterface $formatter, RegisteredUser $registeredUser)
 {
-    echo $registry->format($type, $user), "\n";
+    echo $formatter->formatText($registeredUser), "\n";
 }
 
-$registry = new FormatterRegistry();
-$formatType = FormatType::createFromInteger(FormatType::TYPE_1);
-$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_1), new RegisteredUserTextFormatterFirst());
-$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_2), new RegisteredUserTextFormatterSecond());
-$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_3), new RegisteredUserTextFormatterThird());
-$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_4), new RegisteredUserTextFormatterFourth());
-$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_5), new RegisteredUserTextFormatterFifth());
 /* 1. oslovenie */
-$formatType = FormatType::createFromInteger(FormatType::TYPE_1);
-renderUserInfo($formatType, $christmasUser, $registry);
-renderUserInfo($formatType, $easterUser, $registry);
-renderUserInfo($formatType, $regularUser, $registry);
+$nameFormatter = new RegisteredUserNameFormatter();
+renderUserInfo($nameFormatter, $christmasUser);
+renderUserInfo($nameFormatter, $easterUser);
+renderUserInfo($nameFormatter, $regularUser);
 echo "\n";
 
 /* 2. oslovenie */
-$formatType = FormatType::createFromInteger(FormatType::TYPE_2);
-renderUserInfo($formatType, $christmasUser, $registry);
-renderUserInfo($formatType, $easterUser, $registry);
-renderUserInfo($formatType, $regularUser, $registry);
+$salutationDecoratedFormatter = new SalutationDecorator($nameFormatter);
+renderUserInfo($salutationDecoratedFormatter, $christmasUser);
+renderUserInfo($salutationDecoratedFormatter, $easterUser);
+renderUserInfo($salutationDecoratedFormatter, $regularUser);
 echo "\n";
 
 /* 3. oslovenie */
-$formatType = FormatType::createFromInteger(FormatType::TYPE_3);
-renderUserInfo($formatType, $christmasUser, $registry);
-renderUserInfo($formatType, $easterUser, $registry);
-renderUserInfo($formatType, $regularUser, $registry);
+$timeOfYearDecorator = new TimeOfYearDecorator($nameFormatter);
+renderUserInfo($timeOfYearDecorator, $christmasUser);
+renderUserInfo($timeOfYearDecorator, $easterUser);
+renderUserInfo($timeOfYearDecorator, $regularUser);
 echo "\n";
 
 /* 4. oslovenie */
-$formatType = FormatType::createFromInteger(FormatType::TYPE_4);
-renderUserInfo($formatType, $christmasUser, $registry);
-renderUserInfo($formatType, $easterUser, $registry);
-renderUserInfo($formatType, $regularUser, $registry);
+$timeOfYearDecorator2 = new TimeOfYearDecorator($salutationDecoratedFormatter);
+renderUserInfo($timeOfYearDecorator2, $christmasUser);
+renderUserInfo($timeOfYearDecorator2, $easterUser);
+renderUserInfo($timeOfYearDecorator2, $regularUser);
 echo "\n";
 
 /* 5. oslovenie */
-$formatType = FormatType::createFromInteger(FormatType::TYPE_5);
-renderUserInfo($formatType, $christmasUser, $registry);
-renderUserInfo($formatType, $easterUser, $registry);
-renderUserInfo($formatType, $regularUser, $registry);
+$salutationDecorator = new SalutationDecorator($timeOfYearDecorator);
+renderUserInfo($salutationDecorator, $christmasUser);
+renderUserInfo($salutationDecorator, $easterUser);
+renderUserInfo($salutationDecorator, $regularUser);

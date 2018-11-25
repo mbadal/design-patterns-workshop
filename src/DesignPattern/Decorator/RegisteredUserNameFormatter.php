@@ -6,7 +6,7 @@ namespace Delvesoft\DesignPattern\Decorator;
 
 use Delvesoft\User\Entity\RegisteredUser;
 
-class RegisteredUserTextFormatterFirst implements RegisteredUserTextFormatterInterface
+class RegisteredUserNameFormatter implements RegisteredUserTextFormatterInterface
 {
     /**
      * @param RegisteredUser $user
