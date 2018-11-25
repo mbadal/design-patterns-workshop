@@ -58,3 +58,6 @@ echo $formatter->formatText($regularUser), "\n";
 
 /* 4. oslovenie */
 /* @TODO */
+
+/* 5. oslovenie */
+/* @TODO */
