@@ -3,7 +3,12 @@
 declare(strict_types=1);
 
 use Carbon\Carbon;
-use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatter;
+use Delvesoft\DesignPattern\Decorator\FormatterRegistry;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFifth;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFirst;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterFourth;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterSecond;
+use Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterThird;
 use Delvesoft\User\Entity\RegisteredUser;
 use Delvesoft\User\Value\FormatType;
 use Delvesoft\User\Value\Gender;
@@ -45,41 +50,53 @@ $regularUser = new RegisteredUser(
  *      - dbajte na znovupouzitelnost kodu
  */
 
+/**
+ * @param FormatType        $type
+ * @param RegisteredUser    $user
+ * @param FormatterRegistry $registry
+ */
+function renderUserInfo(FormatType $type, RegisteredUser $user, FormatterRegistry $registry)
+{
+    echo $registry->format($type, $user), "\n";
+}
+
+$registry = new FormatterRegistry();
+$formatType = FormatType::createFromInteger(FormatType::TYPE_1);
+$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_1), new RegisteredUserTextFormatterFirst());
+$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_2), new RegisteredUserTextFormatterSecond());
+$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_3), new RegisteredUserTextFormatterThird());
+$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_4), new RegisteredUserTextFormatterFourth());
+$registry->registerFormatter(FormatType::createFromInteger(FormatType::TYPE_5), new RegisteredUserTextFormatterFifth());
 /* 1. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_1);
-$formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
-echo $formatter->formatText($regularUser, $formatType), "\n";
+renderUserInfo($formatType, $christmasUser, $registry);
+renderUserInfo($formatType, $easterUser, $registry);
+renderUserInfo($formatType, $regularUser, $registry);
 echo "\n";
 
 /* 2. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_2);
-$formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
-echo $formatter->formatText($regularUser, $formatType), "\n";
+renderUserInfo($formatType, $christmasUser, $registry);
+renderUserInfo($formatType, $easterUser, $registry);
+renderUserInfo($formatType, $regularUser, $registry);
 echo "\n";
 
 /* 3. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_3);
-$formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
-echo $formatter->formatText($regularUser, $formatType), "\n";
+renderUserInfo($formatType, $christmasUser, $registry);
+renderUserInfo($formatType, $easterUser, $registry);
+renderUserInfo($formatType, $regularUser, $registry);
 echo "\n";
 
 /* 4. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_4);
-$formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
-echo $formatter->formatText($regularUser, $formatType), "\n";
+renderUserInfo($formatType, $christmasUser, $registry);
+renderUserInfo($formatType, $easterUser, $registry);
+renderUserInfo($formatType, $regularUser, $registry);
 echo "\n";
 
 /* 5. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_5);
-$formatter = new RegisteredUserTextFormatter();
-echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
-echo $formatter->formatText($regularUser, $formatType), "\n";
+renderUserInfo($formatType, $christmasUser, $registry);
+renderUserInfo($formatType, $easterUser, $registry);
+renderUserInfo($formatType, $regularUser, $registry);

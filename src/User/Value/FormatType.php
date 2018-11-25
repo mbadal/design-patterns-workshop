@@ -46,42 +46,10 @@ class FormatType
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isFirstType(): bool
+    public function getType(): int
     {
-        return ($this->value === static::TYPE_1);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSecondType(): bool
-    {
-        return ($this->value === static::TYPE_2);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isThirdType(): bool
-    {
-        return ($this->value === static::TYPE_3);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isFourthType(): bool
-    {
-        return ($this->value === static::TYPE_4);
-    }
-
-    /**
-     * @return bool
-     */
-    public function isFifthType(): bool
-    {
-        return ($this->value === static::TYPE_5);
+        return $this->value;
     }
 }

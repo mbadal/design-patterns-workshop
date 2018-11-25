@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace Delvesoft\DesignPattern\Decorator;
 
 use Delvesoft\User\Entity\RegisteredUser;
-use Delvesoft\User\Value\FormatType;
 
-interface RegisteredUserTextFormatterInterface
+class RegisteredUserTextFormatterFirst implements RegisteredUserTextFormatterInterface
 {
     /**
      * @param RegisteredUser $user
      *
      * @return string
      */
-    public function formatText(RegisteredUser $user): string;
+    public function formatText(RegisteredUser $user): string
+    {
+        return $user->getName();
+    }
 }
