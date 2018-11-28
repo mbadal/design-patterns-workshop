@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use Delvesoft\Client\Http\HttpClient;
+use Delvesoft\Client\Http\OtherHttpClient;
+use Delvesoft\DesignPattern\Adapter\Adapter\HttpClientAdapter;
+use Delvesoft\DesignPattern\Adapter\Adapter\OtherHttpClientAdapter;
 use Delvesoft\DesignPattern\Adapter\Sender\HttpRequestSender;
 
 require 'vendor/autoload.php';
@@ -26,8 +30,18 @@ $data    = [
 $headers = [
     'Content-Type' => 'application\json',
 ];
-$sender1 = new HttpRequestSender(/** @TODO */);
-$sender1->performRequest($data, $headers);
 
-$sender2 = new HttpRequestSender(/** @TODO */);
+$sender1 = new HttpRequestSender(
+    new HttpClientAdapter(
+        new HttpClient()
+    )
+);
+$sender1->performRequest($data, $headers);
+echo "\n";
+
+$sender2 = new HttpRequestSender(
+    new OtherHttpClientAdapter(
+        new OtherHttpClient()
+    )
+);
 $sender2->performRequest($data, $headers);
