@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\Decorator\TransactionDecorator;
 use Delvesoft\Fixtures\DatabaseConnection;
 use Delvesoft\Fixtures\FixtureLoader;
 
@@ -15,6 +16,11 @@ require 'vendor/autoload.php';
  */
 
 
-$fixtureLoader = new FixtureLoader(new DatabaseConnection());
+$fixtureLoader = new FixtureLoader();
+$decorator     = new TransactionDecorator($fixtureLoader, new DatabaseConnection());
+$decorator->loadFixtures();
+$decorator->loadFixtures();
+echo "----------------------\n";
+
 $fixtureLoader->loadFixtures();
 $fixtureLoader->loadFixtures();
