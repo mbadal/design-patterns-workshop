@@ -57,14 +57,16 @@ class Television
      */
     public function setVolume(int $volumeToSet)
     {
+        printf("Setting volume on TV to %s", $volumeToSet);
         $this->volume = $this->volume->setVolume($volumeToSet);
     }
 
     /**
-     * @param int $channelToChange
+     * @param int $channelNumber
      */
-    public function setChannel(int $channelToChange)
+    public function setChannel(int $channelNumber)
     {
-        $this->channel = $this->channel->changeChannel($channelToChange);
+        printf("Setting channel on TV to %s", $channelNumber);
+        $this->channel = $this->channel->changeChannel($channelNumber);
     }
 }

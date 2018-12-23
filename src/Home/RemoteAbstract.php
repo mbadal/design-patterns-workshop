@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Home;
 
-class Remote
+abstract class RemoteAbstract
 {
     public function togglePower()
     {
