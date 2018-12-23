@@ -39,7 +39,7 @@ class Television
     /**
      * @return int
      */
-    public function geVolume(): int
+    public function getVolume(): int
     {
         return $this->volume->getVolume();
     }
