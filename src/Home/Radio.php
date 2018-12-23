@@ -65,7 +65,7 @@ class Radio
     {
         printf("Setting volume on Radio to %s\n", $volumeToSet);
         $this->volume = $this->volume->setVolume($volumeToSet);
-        printf("Actual volume on Radio: [%s]\n", $this->volume->getVolume());
+        printf("Actual volume on Radio: [%s]\n\n", $this->volume->getVolume());
     }
 
     /**
@@ -75,6 +75,6 @@ class Radio
     {
         printf("Setting volume on Radio to %s\n", $channelCode);
         $this->channel = $this->channel->changeChannel($channelCode);
-        printf("Actual channel on Radio: [%s]\n", $this->channel->getChannel());
+        printf("Actual channel on Radio: [%s]\n\n", $this->channel->getChannel());
     }
 }
