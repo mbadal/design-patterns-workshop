@@ -7,7 +7,7 @@ namespace Delvesoft\Home;
 use Delvesoft\Home\Value\Channel;
 use Delvesoft\Home\Value\Volume;
 
-class Television
+class Television implements DeviceInterface
 {
     /** @var bool */
     private $isEnabled = false;

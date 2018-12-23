@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use Delvesoft\Home\MutableRemote;
 use Delvesoft\Home\Radio;
+use Delvesoft\Home\Remote;
 use Delvesoft\Home\Television;
 
 require 'vendor/autoload.php';
@@ -22,7 +24,13 @@ $television = new Television();
 $radio      = new Radio();
 
 
-$remote = null;
+$remote        = new Remote($television);
+$mutableRemote = new MutableRemote($television);
+
+$remote->channelUp();
+$remote->channelDown();
+var_dump($remote, $mutableRemote);
+exit;
 /*
  * @todo $remote = new Remote()
  * @todo $mutableRemote = new MutableRemote()
