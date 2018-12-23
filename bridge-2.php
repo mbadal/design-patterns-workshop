@@ -29,9 +29,14 @@ $mutableRemote = new MutableRemote($television);
 
 $remote->channelUp();
 $remote->channelDown();
-var_dump($remote, $mutableRemote);
-exit;
-/*
- * @todo $remote = new Remote()
- * @todo $mutableRemote = new MutableRemote()
- */
+$remote->volumeUp();
+$remote->volumeDown();
+$mutableRemote->mute();
+
+$remote->setDevice($radio);
+$mutableRemote->setDevice($radio);
+$remote->channelUp();
+$remote->channelDown();
+$remote->volumeUp();
+$remote->volumeDown();
+$mutableRemote->mute();
