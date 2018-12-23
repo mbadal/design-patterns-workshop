@@ -25,7 +25,7 @@ class Channel
      * @return Channel
      * @throws RuntimeException
      */
-    public function createFromInteger(int $channel): Channel
+    public static function createFromInteger(int $channel): Channel
     {
         if ($channel < 1 || 10 < $channel) {
             throw new RuntimeException("Bad channel value passed in");

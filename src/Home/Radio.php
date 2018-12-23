@@ -18,6 +18,12 @@ class Radio
     /** @var Channel */
     private $channel;
 
+    public function __construct()
+    {
+        $this->channel = Channel::createFromInteger(1);
+        $this->volume  = Volume::createFromInteger(10);
+    }
+
     /**
      * @return bool
      */
