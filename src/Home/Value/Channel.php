@@ -44,7 +44,7 @@ class Channel
     {
         if ($channel > 10) {
             $channel = 1;
-        } elseif ($channel < 0) {
+        } elseif ($channel <= 0) {
             $channel = 10;
         }
 
