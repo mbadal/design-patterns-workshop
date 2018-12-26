@@ -17,7 +17,6 @@ require 'vendor/autoload.php';
  *      - Core riesenia (logiku) implementujete do 'Delvesoft\DesignPattern\AbstractFactory'
  */
 
-
 /**
  * @param ComponentFactoryInterface $factory
  */
