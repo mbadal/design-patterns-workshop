@@ -28,7 +28,5 @@ $fixtureLoader = new FixtureLoader();
 $decorator     = new TransactionDecorator($fixtureLoader, new DatabaseConnection());
 $decorator->loadFixtures();
 $decorator->loadFixtures();
-echo "----------------------\n";
-
 $fixtureLoader->loadFixtures();
 $fixtureLoader->loadFixtures();
