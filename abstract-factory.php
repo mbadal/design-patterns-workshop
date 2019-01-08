@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use Delvesoft\Car\Component\ComponentInterface;
+use Delvesoft\Car\Component\HoodInterface;
+use Delvesoft\Car\Component\TireInterface;
 
 require 'vendor/autoload.php';
 
@@ -17,10 +18,10 @@ require 'vendor/autoload.php';
 
 function testFactory($factory)
 {
-    /** @var ComponentInterface $hood */
+    /** @var HoodInterface $hood */
     $hood = $factory->createHood();
 
-    /** @var ComponentInterface $tire */
+    /** @var TireInterface $tire */
     $tire = $factory->createTire();
 
     printf('Products: %s, %s', $hood->getFullName(), $tire->getFullName());

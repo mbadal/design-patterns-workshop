@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Car\Component;
 
-class RacingHood implements ComponentInterface
+class RacingHood implements HoodInterface
 {
     /**
      * @return string

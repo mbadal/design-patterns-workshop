@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Car\Component;
 
-class SparcoHood implements ComponentInterface
+class SparcoHood implements HoodInterface
 {
     /**
      * @return string
