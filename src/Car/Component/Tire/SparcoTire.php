@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Car\Component\Tire;
 
-use Delvesoft\Car\Component\Vendor\NameEnum;
+use Delvesoft\Car\Component\VendorName\NameEnum;
 
 class SparcoTire implements TireInterface
 {
