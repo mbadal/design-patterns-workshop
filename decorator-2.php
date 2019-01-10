@@ -9,9 +9,17 @@ require 'vendor/autoload.php';
 
 /**
  * Instrukcie:
- * - zrefaktorujte kod tak prerobenim na decorator pattern
+ * - zrefaktorujte kod prerobenim na decorator pattern
  * - Podmienky:
  *      - balicek 'Delvesoft\Fixtures' musi podporovat nacitavanie fixtur aj s transakciou, aj bez transakcii
+ * - Vzorovy vystup:
+ *      Transaction was started
+ *      Loading fixtures
+ *      Transaction was aborted
+ *      Transaction was started
+ *      Loading fixtures
+ *      Loading fixtures
+ *      Loading fixtures
  */
 
 
