@@ -17,7 +17,7 @@ $christmasUser = new RegisteredUser(
     Gender::createFromString(Gender::GENDER_MALE)
 );
 
-$easternUser = new RegisteredUser(
+$easterUser = new RegisteredUser(
     Name::createFromString('Gertruda'),
     Carbon::createFromDate(2018, 04, 25, $timezone),
     Gender::createFromString(Gender::GENDER_FEMALE)
@@ -47,7 +47,7 @@ $regularUser = new RegisteredUser(
 /* 1. oslovenie */
 $formatter = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser), "\n";
-echo $formatter->formatText($easternUser), "\n";
+echo $formatter->formatText($easterUser), "\n";
 echo $formatter->formatText($regularUser), "\n";
 
 /* 2. oslovenie */
