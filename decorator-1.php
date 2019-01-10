@@ -18,7 +18,7 @@ $christmasUser = new RegisteredUser(
     Gender::createFromString(Gender::GENDER_MALE)
 );
 
-$easternUser = new RegisteredUser(
+$easterUser = new RegisteredUser(
     Name::createFromString('Gertruda'),
     Carbon::createFromDate(2018, 04, 25, $timezone),
     Gender::createFromString(Gender::GENDER_FEMALE)
@@ -49,7 +49,7 @@ $regularUser = new RegisteredUser(
 $formatType = FormatType::createFromInteger(FormatType::TYPE_1);
 $formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easternUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
@@ -57,7 +57,7 @@ echo "\n";
 $formatType = FormatType::createFromInteger(FormatType::TYPE_2);
 $formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easternUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
@@ -65,7 +65,7 @@ echo "\n";
 $formatType = FormatType::createFromInteger(FormatType::TYPE_3);
 $formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easternUser, $formatType), "\n";
+echo $formatter->formatText($easterUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
