@@ -13,6 +13,9 @@ require 'vendor/autoload.php';
  *      - jedna trieda musi vediet vytvorit oba typy komponentov (Hood aj Tire)
  *      - upravte vhodne strukturu 'Delvesoft\Car\Component\*, '
  *      - Core riesenia (logiku) implementujete do 'Delvesoft\DesignPattern\AbstractFactory'
+ * - Vystup:
+ *      Products: Hood of vendor: [spraco], Tire of vendor: [spraco]
+ *      Products: Hood of vendor: [racing], Tire of vendor: [racing]
  */
 
 function testFactory($factory)
