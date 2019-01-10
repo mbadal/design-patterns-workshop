@@ -39,8 +39,8 @@ $regularUser = new RegisteredUser(
  *      - [Pan/Pani] [Stastne a Vesele Vianoce/Prijemnu Velku noc/Prijemny den] [Meno]
  * - Podmienky:
  *      - riesenie implementujte v 'Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatter'
- *      - riesenie nemusi byt implementovane vramci jednej triedy, drzte sa Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterInterface, ak chcete, mozte
- *        trochu upravit signaturu metody ale lepsie bude, ak to nespravite
+ *      - riesenie nemusi byt implementovane vramci jednej triedy, drzte sa Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterInterface,
+ * ak chcete, mozte trochu upravit signaturu metody ale lepsie bude, ak to nespravite
  *      - dbajte na znovupouzitelnost kodu
  */
 
