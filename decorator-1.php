@@ -18,7 +18,7 @@ $christmasUser = new RegisteredUser(
     Gender::createFromString(Gender::GENDER_MALE)
 );
 
-$easterUser = new RegisteredUser(
+$easternUser = new RegisteredUser(
     Name::createFromString('Gertruda'),
     Carbon::createFromDate(2018, 04, 25, $timezone),
     Gender::createFromString(Gender::GENDER_FEMALE)
@@ -40,46 +40,46 @@ $regularUser = new RegisteredUser(
  *      - [Pan/Pani] [Stastne a Vesele Vianoce/Prijemnu Velku noc/Prijemny den] [Meno]
  * - Podmienky:
  *      - riesenie implementujte v 'Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatter'
- *      - riesenie nemusi byt implementovane vramci jednej triedy, drzte sa Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterInterface, ak chcete, mozte
- *        trochu upravit signaturu metody ale lepsie bude, ak to nespravite
+ *      - riesenie nemusi byt implementovane vramci jednej triedy, drzte sa Delvesoft\DesignPattern\Decorator\RegisteredUserTextFormatterInterface,
+ * ak chcete, mozte trochu upravit signaturu metody ale lepsie bude, ak to nespravite
  *      - dbajte na znovupouzitelnost kodu
  */
 
 /* 1. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_1);
-$formatter = new RegisteredUserTextFormatter();
+$formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($easternUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
 /* 2. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_2);
-$formatter = new RegisteredUserTextFormatter();
+$formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($easternUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
 /* 3. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_3);
-$formatter = new RegisteredUserTextFormatter();
+$formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($easternUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
 /* 4. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_4);
-$formatter = new RegisteredUserTextFormatter();
+$formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($easternUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";
 echo "\n";
 
 /* 5. oslovenie */
 $formatType = FormatType::createFromInteger(FormatType::TYPE_5);
-$formatter = new RegisteredUserTextFormatter();
+$formatter  = new RegisteredUserTextFormatter();
 echo $formatter->formatText($christmasUser, $formatType), "\n";
-echo $formatter->formatText($easterUser, $formatType), "\n";
+echo $formatter->formatText($easternUser, $formatType), "\n";
 echo $formatter->formatText($regularUser, $formatType), "\n";

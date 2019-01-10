@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delvesoft\Car\Component\Tire;
-
-use Delvesoft\Car\Component\ComponentInterface;
+namespace Delvesoft\Car\Component;
 
 class SparcoTire implements ComponentInterface
 {
