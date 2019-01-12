@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 /**
  * Instrukcie:
  *  - v Balicku 'Delvesoft\DesignPattern\Adapter\Sender' je implementovana trieda HttpRequestSender, ktora posiela HTTP requesty
- *  - trieda sa spolieha na interface 'Delcesoft\DesignPattern\Adapter\Client\ClientInterface', ktora definuje pozadovany kontrakt pre HTTP clienta
+ *  - trieda sa spolieha na interface 'Delvesoft\DesignPattern\Adapter\Client\ClientInterface', ktora definuje pozadovany kontrakt pre HTTP clienta
  *  - v balicku 'Delvesoft\Client\Http\' sa nachadzaju 2 rozne "implementacie" HTTP clientov, kazda s inym API
  *  - zabezpecte, aby bola trieda HttpRequestSender schopna pouzit obe implementacie HTTP clientov
  *  - vytvorte pre kazdy HTTP klient sender, ktorym overite fungovanie riesenia
