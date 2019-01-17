@@ -12,7 +12,7 @@ require 'vendor/autoload.php';
 /**
  * Instrukcie:
  * - upracte balicek 'Delvesoft\Shape' podla SOLID principov
- * - pridajte zelene farbu do utvarov
+ * - pridajte zelenu farbu do utvarov
  * - vytvorte triedu, ktora reprezentuje trojuholnik musi podporovat vsetky 3 farby
  * - Poznamka:
  *      - atribut farba sa pouziva len pri vykreslovani utvarov
