@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Delvesoft\Shape;
 
-use Delvesoft\Shape\Color\Color;
+use Delvesoft\DesignPattern\Bridge\Platform\RendererInterface;
 use Delvesoft\Shape\Point\Point;
 
-class BlueSquare extends AbstractShape
+class Square implements ShapeInterface
 {
     /** @var Point */
     private $point1;
@@ -34,22 +34,13 @@ class BlueSquare extends AbstractShape
         $this->point4 = $point4;
     }
 
-    public function draw()
+    public function draw(RendererInterface $renderer)
     {
-        $color = $this->getColor();
         printf("Drawing square\n");
-        $this->drawLine($this->point1, $this->point2, $color);
-        $this->drawLine($this->point2, $this->point3, $color);
-        $this->drawLine($this->point3, $this->point4, $color);
-        $this->drawLine($this->point4, $this->point1, $color);
+        $renderer->drawLine($this->point1, $this->point2);
+        $renderer->drawLine($this->point2, $this->point3);
+        $renderer->drawLine($this->point3, $this->point4);
+        $renderer->drawLine($this->point4, $this->point1);
         printf("----------------------------\n\n");
-    }
-
-    /**
-     * @return Color
-     */
-    protected function getColor(): Color
-    {
-        return Color::createFromInteger(Color::COLOR_BLUE);
     }
 }

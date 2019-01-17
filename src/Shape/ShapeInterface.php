@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace Delvesoft\Shape;
 
+use Delvesoft\DesignPattern\Bridge\Platform\RendererInterface;
+
 interface ShapeInterface
 {
     /**
-     * @return void
+     * @param RendererInterface $renderer
      */
-    public function draw();
+    public function draw(RendererInterface $renderer);
 }

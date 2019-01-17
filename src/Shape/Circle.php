@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Delvesoft\Shape;
 
-use Delvesoft\Shape\Color\Color;
+use Delvesoft\DesignPattern\Bridge\Platform\RendererInterface;
 use Delvesoft\Shape\Point\Point;
 
-class BlueCircle extends AbstractShape
+class Circle implements ShapeInterface
 {
     /** @var float */
     private $radius;
@@ -24,26 +24,17 @@ class BlueCircle extends AbstractShape
         $this->centre = $centre;
     }
 
-    public function draw()
+    public function draw(RendererInterface $renderer)
     {
         $i     = 0;
-        $color = $this->getColor();
         printf("Drawing circle: \n");
         while ($i <= 360) {
             $x = $this->centre->getX() + $this->radius * cos(deg2rad($i));
             $y = $this->centre->getY() + $this->radius * sin(deg2rad($i));
-            $this->drawPoint(Point::createFromCoordinates($x, $y), $color);
+            $renderer->drawPoint(Point::createFromCoordinates($x, $y));
 
             $i++;
         }
         printf("----------------------------\n\n");
-    }
-
-    /**
-     * @return Color
-     */
-    protected function getColor(): Color
-    {
-        return Color::createFromInteger(Color::COLOR_BLUE);
     }
 }
