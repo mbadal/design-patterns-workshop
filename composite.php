@@ -31,6 +31,13 @@ require 'vendor/autoload.php';
  *          - vypisat postupne celu strukturu suboroveho systemu (metoda 'printTreeStructure')
  *          - na vypisanie celej struktury MUSI!!! stacit jedno zavolanie metody 'printTreeStructure' nad TreeRoot
  * dany INode)
+ *  - Vystup:
+ *      /root/folder11/folder21/folder31/folder41
+ *      /root/folder11/folder21/folder31/folder42
+ *      /root/folder11/folder21/folder31/file41
+ *      /root/folder11/folder22
+ *      /root/folder11/file21
+ *      /root/file11
  */
 
 $folder41 = new Folder('folder41');
