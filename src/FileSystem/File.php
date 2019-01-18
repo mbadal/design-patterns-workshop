@@ -11,6 +11,6 @@ class File extends FileAbstract
      */
     public function printPath(string $actualPath)
     {
-        //@todo
+        echo "{$actualPath}/{$this->getName()}", "\n";
     }
 }

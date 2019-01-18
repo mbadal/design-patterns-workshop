@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\Composite\TreeRoot;
 use Delvesoft\FileSystem\File;
 use Delvesoft\FileSystem\Folder;
 
@@ -51,9 +52,5 @@ $file11     = new File('file11');
 $rootFolder = new Folder('root');
 $rootFolder->addChild($folder11)->addChild($file11);
 
-/**
- * @todo
- * $treeRoot = new TreeRoot($rootFolder);
- * $treeRoot->printTreeStructure();
- *
- */
+$treeRoot = new TreeRoot($rootFolder);
+$treeRoot->printTreeStructure();

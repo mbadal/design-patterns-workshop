@@ -11,6 +11,17 @@ class Folder extends FolderAbstract
      */
     public function printPath(string $actualPath)
     {
-        //@todo
+        $children = $this->getChildren();
+        $actualPath = "{$actualPath}/{$this->getName()}";
+        if (empty($children)) {
+            echo  $actualPath, "\n";
+
+            return;
+
+        }
+
+        foreach ($this->getChildren() as $child) {
+            $child->printPath($actualPath);
+        }
     }
 }
