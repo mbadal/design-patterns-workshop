@@ -41,10 +41,12 @@ $folder31->addChild($folder41)->addChild($folder42)->addChild($file41);
 
 $folder21 = new Folder('folder21');
 $folder21->addChild($folder31);
+
 $folder22 = new Folder('folder22');
 $file21   = new File('file21');
 $folder11 = new Folder('folder11');
 $folder11->addChild($folder21)->addChild($folder22)->addChild($file21);
+
 $file11     = new File('file11');
 $rootFolder = new Folder('root');
 $rootFolder->addChild($folder11)->addChild($file11);
