@@ -20,7 +20,7 @@ abstract class FileAbstract implements InodeInterface
     /**
      * @return string
      */
-    protected function getName(): string
+    public function getName(): string
     {
         return $this->name;
     }

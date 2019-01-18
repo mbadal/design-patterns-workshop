@@ -27,7 +27,7 @@ abstract class FolderAbstract implements InodeInterface
      */
     public function addChild(InodeInterface $child): FolderAbstract
     {
-        $this->children[$child->printName()] = $child;
+        $this->children[$child->getName()] = $child;
 
         return $this;
     }
@@ -35,7 +35,7 @@ abstract class FolderAbstract implements InodeInterface
     /**
      * @return string
      */
-    protected function getName(): string
+    public function getName(): string
     {
         return $this->name;
     }
