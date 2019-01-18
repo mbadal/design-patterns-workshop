@@ -26,4 +26,12 @@ abstract class TreeRootAbstract
     public abstract function printInodePath(InodeInterface $inode);
 
     public abstract function printTreeStructure();
+
+    /**
+     * @return InodeInterface
+     */
+    protected function getRoot(): InodeInterface
+    {
+        return $this->root;
+    }
 }
