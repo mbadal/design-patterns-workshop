@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\FileSystem;
 
-class Folder implements InodeInterface
+abstract class FolderAbstract implements InodeInterface
 {
     /** @var string */
     private $name;
@@ -25,9 +25,9 @@ class Folder implements InodeInterface
      *
      * @return $this
      */
-    public function addChild(InodeInterface $child): Folder
+    public function addChild(InodeInterface $child): FolderAbstract
     {
-        $this->children[$child->getName()] = $child;
+        $this->children[$child->printName()] = $child;
 
         return $this;
     }
@@ -35,16 +35,16 @@ class Folder implements InodeInterface
     /**
      * @return string
      */
-    public function getName(): string
+    protected function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @return bool
+     * @return InodeInterface[]
      */
-    public function hasChildren(): bool
+    protected function getChildren(): array
     {
-        return true;
+        return $this->children;
     }
 }

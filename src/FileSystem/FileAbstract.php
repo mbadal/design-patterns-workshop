@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\FileSystem;
 
-class File implements InodeInterface
+abstract class FileAbstract implements InodeInterface
 {
     /** @var string */
     private $name;
@@ -20,16 +20,8 @@ class File implements InodeInterface
     /**
      * @return string
      */
-    public function getName(): string
+    protected function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasChildren(): bool
-    {
-        return false;
     }
 }
