@@ -10,4 +10,9 @@ interface InodeInterface
      * @return string
      */
     public function getName(): string;
+
+    /**
+     * @return bool
+     */
+    public function hasChildren(): bool;
 }

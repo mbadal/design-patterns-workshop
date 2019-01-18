@@ -24,4 +24,12 @@ class File implements InodeInterface
     {
         return $this->name;
     }
+
+    /**
+     * @return bool
+     */
+    public function hasChildren(): bool
+    {
+        return false;
+    }
 }
