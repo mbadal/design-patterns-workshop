@@ -6,15 +6,12 @@ namespace Delvesoft\ServiceLayer\Http;
 
 use Delvesoft\ServiceLayer\ValueObject\Url;
 
-class SimpleClient implements ClientInterface
+interface ClientInterface
 {
     /**
      * @param Url $endpoint
      *
      * @return array
      */
-    public function download(Url $endpoint): array
-    {
-        return json_decode(file_get_contents($endpoint->toString()), true);
-    }
+    public function download(Url $endpoint): array;
 }
