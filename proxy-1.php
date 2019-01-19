@@ -7,5 +7,11 @@ use Delvesoft\ServiceLayer\ValueObject\Url;
 
 require 'vendor/autoload.php';
 
+function testClient(SimpleClient $client, Url $url)
+{
+    var_dump($client->download($url));
+}
+
 $client = new SimpleClient();
-var_dump($client->download(Url::createFromString('https://jsonplaceholder.typicode.com/comments')));
+$url    = Url::createFromString('https://jsonplaceholder.typicode.com/comments');
+testClient($client, $url);
