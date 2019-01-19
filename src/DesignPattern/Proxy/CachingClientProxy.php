@@ -30,7 +30,6 @@ class CachingClientProxy implements ClientInterface
     public function download(Url $endpoint): array
     {
         if (empty($this->cachedResult)) {
-            echo "Downloading from endpoint\n";
             $this->cachedResult = $this->client->download($endpoint);
         }
 
