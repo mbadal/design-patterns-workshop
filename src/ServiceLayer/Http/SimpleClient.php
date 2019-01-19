@@ -16,6 +16,7 @@ class SimpleClient implements ClientInterface
      */
     public function download(Url $endpoint): array
     {
+        echo "Downloading data from endpoint: {$endpoint}\n";
         return json_decode(file_get_contents($endpoint->toString()), true);
     }
 }
