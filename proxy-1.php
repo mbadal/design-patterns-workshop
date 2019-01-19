@@ -24,3 +24,4 @@ function testClient(SimpleClient $client, Url $url)
 $client = new SimpleClient();
 $url    = Url::createFromString('https://jsonplaceholder.typicode.com/comments');
 testClient($client, $url);
+testClient($client, $url);
