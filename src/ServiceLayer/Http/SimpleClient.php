@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Delvesoft\ServiceLayer\Http;
 
 use Delvesoft\ServiceLayer\ValueObject\Url;
+use Delvesoft\DesignPattern\Proxy\ClientInterface;
 
 class SimpleClient implements ClientInterface
 {

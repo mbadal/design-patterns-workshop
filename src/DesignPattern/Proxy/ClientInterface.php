@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delvesoft\ServiceLayer\Http;
+namespace Delvesoft\DesignPattern\Proxy;
 
 use Delvesoft\ServiceLayer\ValueObject\Url;
 
