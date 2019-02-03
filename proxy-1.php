@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
 /**
  * Instrukcie:
  * - V balicku 'Delvesoft\ServiceLayer' je implemebtovana jednoducha servisna vrstva, ktora moze stahovat velke objemy dat
- * - Zabezpecte pomocou Proxy patternu, aby setrenie prostriedkov:
+ * - Zabezpecte pomocou Proxy patternu setrenie prostriedkov:
  *      - je nutne pripajanie sa na externy system, stahovanie a parsovanie vysledkov robit pri kazdom volani?
  *  - Podmienky:
  *      - dbajte na dependency inversion!!!
