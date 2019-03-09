@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Delvesoft\Bank\Account;
 use Delvesoft\Bank\Transaction;
 use Delvesoft\Bank\ValueObject\Operation;
+use Delvesoft\DesignPattern\Proxy\AccountProxy;
 
 require 'vendor/autoload.php';
 
@@ -19,7 +20,8 @@ require 'vendor/autoload.php';
  *      - vyuzite Proxy pattern
  */
 
-$account = new Account();
+//$account = new Account();
+$account = new AccountProxy();
 $account->push(new Transaction(15.1, Operation::createDeposit()));
 $account->push(new Transaction(2.7, Operation::createWithdraw()));
 $account->push(new Transaction(1.0, Operation::createWithdraw()));
