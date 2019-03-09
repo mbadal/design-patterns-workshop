@@ -14,6 +14,10 @@ require 'vendor/autoload.php';
  *      - je nutne pripajanie sa na externy system, stahovanie a parsovanie vysledkov robit pri kazdom volani?
  *  - Podmienky:
  *      - dbajte na dependency inversion!!!
+ *  - Vzorovy vystup:
+ *      Downloading data from endpoint: https://jsonplaceholder.typicode.com/comments
+ *      int(500)
+ *      int(500)
  */
 
 function testClient(SimpleClient $client, Url $url)
