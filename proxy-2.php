@@ -29,7 +29,8 @@ $account->push(new Transaction(10.8, Operation::createDeposit()));
 function printAccountBalance(Account $account)
 {
     var_dump($account->getBalance());
-    exit;
 }
 
+printAccountBalance($account);
+printAccountBalance($account);
 printAccountBalance($account);

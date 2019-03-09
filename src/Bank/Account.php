@@ -26,6 +26,7 @@ class Account
      */
     public function getBalance(): float
     {
+        printf("Calculating account balance\n");
         return (float)array_reduce($this->transactions, function ($carry, TransactionInterface $item) {
             if ($item->getOperation()->isDeposit()) {
                 return $carry + $item->getAmount();
