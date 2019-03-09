@@ -17,6 +17,11 @@ require 'vendor/autoload.php';
  *      - trieda Account sa rozsiahlo pouziva v celej code base. Extrahovat z nej interface je problem
  *      - zabezpecte, aby sa trieda dala pouzit bez toho, aby sa zakazdim prepocitavali vsetky transakcie
  *      - vyuzite Proxy pattern
+ *  - Vzorovy vystup
+ *      Calculating account balance
+ *      float(21.7)
+ *      float(21.7)
+ *      float(21.7)
  */
 
 $account = new Account();
