@@ -22,8 +22,20 @@ $television = new Television();
 $radio      = new Radio();
 
 
-$remote = null;
-/*
- * @todo $remote = new Remote()
- * @todo $mutableRemote = new MutableRemote()
+/*$remote        = new Remote($television);
+$mutableRemote = new MutableRemote($television);
+
+$remote->channelUp();
+$remote->channelDown();
+$remote->volumeUp();
+$remote->volumeDown();
+$mutableRemote->mute();
+
+$remote->setDevice($radio);
+$mutableRemote->setDevice($radio);
+$remote->channelUp();
+$remote->channelDown();
+$remote->volumeUp();
+$remote->volumeDown();
+$mutableRemote->mute();
  */
