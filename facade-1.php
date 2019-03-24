@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\Facade\DocumentCreatorFacade;
 use Delvesoft\DocumentConvertor\Compressor;
 use Delvesoft\DocumentConvertor\ConvertorRegistry;
 use Delvesoft\DocumentConvertor\DocumentDownloader;
@@ -40,24 +41,24 @@ $registry
     ->registerConvertor(new WordConvertor());
 $compressor = new Compressor();
 $saver      = new DocumentSaver();
-
-$contents = $downloader->downloadDocument(
-    Url::createFromString('http://test1.url.sk')
-);
-$pdf      = $registry->convertDocument(
-    $contents,
-    DocumentFormat::createPdfFormat()
+$facade     = new DocumentCreatorFacade(
+    $downloader,
+    $registry,
+    $compressor,
+    $saver
 );
 
-$pdf = $compressor->compressDocument($pdf);
-$saver->save($pdf, '/dev/null', 'testing-pdf');
-
-$contents = $downloader->downloadDocument(
-    Url::createFromString('http://test2.url.sk')
+$facade->downloadConvertAndSaveDocumentWithCompression(
+    Url::createFromString('http://test1.url.sk'),
+    DocumentFormat::createPdfFormat(),
+    '/dev/null',
+    'testing-pdf',
+    true
 );
-$word = $registry->convertDocument(
-    $contents,
-    DocumentFormat::createWordFormat()
+$facade->downloadConvertAndSaveDocumentWithCompression(
+    Url::createFromString('http://test2.url.sk'),
+    DocumentFormat::createWordFormat(),
+    '/dev/null',
+    'testing-word',
+    true
 );
-$word = $compressor->compressDocument($word);
-$saver->save($word, '/dev/null', 'testing-word');
