@@ -12,6 +12,20 @@ use Delvesoft\Mvc\ValueObject\RelativeUrl;
 
 require 'vendor/autoload.php';
 
+/**
+ * Instrukcie:
+ *  - v Balicku `Delvesoft\Mvc` je implementovany jednoduchy jednoduchy MVC framework
+ *  - framework podporuje registraciu relativnych URL-iek a priradenie controller handlerov pre ne
+ *  - obe akcie v Controller-i A vyzaduju autorizovaneho pouzivatela, v Controller-i B jedna akcia vyzaduje autorizovaneho pouzivatela, druha nie
+ *  - implementujte pomocou Proxy patternu centralne overenie autorizovaneho pouzivatela (Middleware pattern)
+ *  - Poziadavky:
+ *      - implementujte 2 proxy triedy, kazdu pre jeden controller
+ *      - myslite na to, ze v oboch controlleroch moze byt viac metod
+ *      - v Controller-i A predpokladajte, ze vsetky akcie vyzaduju autorizaciu
+ *      - v Controller-i B predpokladajte, ze niektore akcie pozaduju autorizaciu, niektore nie
+ *
+ */
+
 $authService = new AuthService();
 $container   = [
     ControllerA::class => new ControllerA(

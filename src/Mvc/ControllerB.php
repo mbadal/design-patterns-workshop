@@ -29,11 +29,6 @@ class ControllerB
 
     public function secondAction(): Response
     {
-        if (!$this->authService->isUserAuthenticated())
-        {
-            return Response::createFromScalars(401, 'Not authorized');
-        }
-
         return Response::createFromScalars(200, 'second action B');
     }
 }
