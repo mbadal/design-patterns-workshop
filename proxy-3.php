@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\Proxy\ProxyA;
+use Delvesoft\DesignPattern\Proxy\ProxyB;
 use Delvesoft\Mvc\AuthService;
 use Delvesoft\Mvc\ControllerA;
 use Delvesoft\Mvc\ControllerB;
@@ -33,10 +35,12 @@ require 'vendor/autoload.php';
 
 $authService = new AuthService();
 $container   = [
-    ControllerA::class => new ControllerA(
+    ControllerA::class => new ProxyA(
+        new ControllerA(),
         $authService
     ),
-    ControllerB::class => new ControllerB(
+    ControllerB::class => new ProxyB(
+        new ControllerB(),
         $authService
     )
 ];
