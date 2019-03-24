@@ -23,6 +23,11 @@ require 'vendor/autoload.php';
  *      - myslite na to, ze v oboch controlleroch moze byt viac metod
  *      - v Controller-i A predpokladajte, ze vsetky akcie vyzaduju autorizaciu
  *      - v Controller-i B predpokladajte, ze niektore akcie pozaduju autorizaciu, niektore nie
+ *  - Vzorovy vystup:
+ *      Response with status: [401] and content: [Not authorized]
+ *      Response with status: [401] and content: [Not authorized]
+ *      Response with status: [401] and content: [Not authorized]
+ *      Response with status: [200] and content: [second action B]
  *
  */
 
