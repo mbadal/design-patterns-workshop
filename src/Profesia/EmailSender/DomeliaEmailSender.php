@@ -3,6 +3,7 @@
 namespace Delvesoft\Profesia\EmailSender;
 
 use DateTime;
+use Delvesoft\DesignPattern\Facade\EmailSenderFacade;
 use Delvesoft\Profesia\EmailTemplate\Factory\EmailTemplateFactory;
 use Delvesoft\Profesia\Repository\DisabledEmailsDatabaseRepository;
 use Delvesoft\Profesia\Repository\EmailRecipientRepository;
@@ -17,8 +18,8 @@ class DomeliaEmailSender
     /** @var EmailTemplateSentRepository */
     private $emailTemplatesSentRepository;
 
-    /** @var EmailTemplateFactory */
-    private $emailTemplateFactory;
+    /** @var EmailSenderFacade */
+    private $facade;
 
     private $emailDisabler;
 
@@ -45,23 +46,22 @@ class DomeliaEmailSender
 
         $emailSentCounter = 0;
         foreach ($filteredUsers as $user) {
-            $htmlEmailTemplate = $this->emailTemplateFactory->createEmailTemplate(
+            $sent = $this->facade->sendEmail(
                 $templateType,
+                $user['e_mail'],
                 $user['default_language'],
-                $user['channel_id']
+                $user['channel_id'],
+                $user['user_id'],
+                [
+                    'link'               => $this->getLocalizedLinkToDomelia($user['channel_id'], $user['default_language']),
+                    'disable_email_link' => $this->emailDisabler->getLink(
+                        $user['e_mail'],
+                        $templateType,
+                        $user['channel_id'],
+                        $user['default_language']
+                    )
+                ]
             );
-            $htmlEmailTemplate->SetUserId($user['user_id']);
-            $htmlEmailTemplate->SetEmailVars([
-                'link'               => $this->getLocalizedLinkToDomelia($user['channel_id'], $user['default_language']),
-                'disable_email_link' => $this->emailDisabler->getLink(
-                    $user['e_mail'],
-                    $templateType,
-                    $user['channel_id'],
-                    $user['default_language']
-                )
-            ]);
-
-            $sent = $htmlEmailTemplate->Send($user['e_mail']);
 
             if ($sent) {
                 $emailSentCounter++;

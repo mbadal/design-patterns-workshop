@@ -2,6 +2,7 @@
 
 namespace Delvesoft\Profesia\EmailSender;
 
+use Delvesoft\DesignPattern\Facade\EmailSenderFacade;
 use Delvesoft\Profesia\EmailTemplate\Factory\EmailTemplateFactory;
 use Delvesoft\Profesia\Entity\User;
 use Delvesoft\Profesia\ReadModel\FindAlreadySentUserIdsInDatabase;
@@ -12,8 +13,9 @@ use Carbon\Carbon;
 
 class CvConceptReminderEmailSender
 {
-    /** @var EmailTemplateFactory */
-    private $emailTemplateFactory;
+
+    /** @var EmailSenderFacade */
+    private $facade;
 
     /** @var DisabledEmailsDatabaseRepository */
     private $disabledEmailsRepository;
@@ -23,6 +25,25 @@ class CvConceptReminderEmailSender
 
     /** @var FindAlreadySentUserIdsInDatabase */
     private $findAlreadySentUserIds;
+
+    /**
+     * @param                                  $facade
+     * @param DisabledEmailsDatabaseRepository $disabledEmailsRepository
+     * @param FindDatabaseUsers                $findUsers
+     * @param FindAlreadySentUserIdsInDatabase $findAlreadySentUserIds
+     */
+    public function __construct(
+        $facade,
+        DisabledEmailsDatabaseRepository $disabledEmailsRepository,
+        FindDatabaseUsers $findUsers,
+        FindAlreadySentUserIdsInDatabase $findAlreadySentUserIds
+    ) {
+        $this->facade = $facade;
+        $this->disabledEmailsRepository = $disabledEmailsRepository;
+        $this->findUsers = $findUsers;
+        $this->findAlreadySentUserIds = $findAlreadySentUserIds;
+    }
+
 
     /**
      * @param Carbon $dateLimitFrom
@@ -48,20 +69,19 @@ class CvConceptReminderEmailSender
                 continue;
             }
 
-            $htmlEmailTemplate = $this->emailTemplateFactory->createEmailTemplate(
-                'Concept-Reminder',
-                $user->getDefaultLanguage(),
-                $user->getChannelId()
-            );
-            $htmlEmailTemplate->SetUserId($user->getId());
             $emailVariables = [
                 'name' => $user->hasFirstName() ? ", {$user->getFirstName()}" : '',
             ];
 
-            $htmlEmailTemplate->SetEmailVars($emailVariables);
-
             try {
-                $sent = $htmlEmailTemplate->Send($user->getEmailAddress());
+                $sent = $this->facade->sendEmail(
+                    'Concept-Reminder',
+                    $user->getEmailAddress(),
+                    $user->getDefaultLanguage(),
+                    $user->getChannelId(),
+                    $user->getId(),
+                    $emailVariables
+                );
                 if ($sent) {
                     $sentEmailsCount++;
                 }
