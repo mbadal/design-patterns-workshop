@@ -17,7 +17,7 @@ require 'vendor/autoload.php';
  *  - v Balicku `Delvesoft\Mvc` je implementovany jednoduchy jednoduchy MVC framework
  *  - framework podporuje registraciu relativnych URL-iek a priradenie controller handlerov pre ne
  *  - obe akcie v Controller-i A vyzaduju autorizovaneho pouzivatela, v Controller-i B jedna akcia vyzaduje autorizovaneho pouzivatela, druha nie
- *  - implementujte pomocou Proxy patternu centralne overenie autorizovaneho pouzivatela (Middleware pattern)
+ *  - implementujte pomocou Proxy patternu centralne overenie autorizovaneho pouzivatela
  *  - Poziadavky:
  *      - implementujte 2 proxy triedy, kazdu pre jeden controller
  *      - myslite na to, ze v oboch controlleroch moze byt viac metod
