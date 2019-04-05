@@ -28,6 +28,4 @@ class PdfConvertor implements ConvertorInterface
     {
         return DocumentFormat::createPdfFormat();
     }
-
-
 }

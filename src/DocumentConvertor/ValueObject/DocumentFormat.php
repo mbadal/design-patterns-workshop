@@ -51,4 +51,12 @@ class DocumentFormat
     {
         return $this->value === static::FORMAT_WORD;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->value;
+    }
 }
