@@ -11,18 +11,11 @@ use Delvesoft\Car\Component\Tire\TireInterface;
 
 class RacingFactory implements ComponentFactoryInterface
 {
-
-    /**
-     * @return HoodInterface
-     */
     public function createHood(): HoodInterface
     {
         return new RacingHood();
     }
 
-    /**
-     * @return TireInterface
-     */
     public function createTire(): TireInterface
     {
         return new RacingTire();

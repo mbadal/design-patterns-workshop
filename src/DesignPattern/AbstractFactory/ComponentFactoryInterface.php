@@ -9,13 +9,6 @@ use Delvesoft\Car\Component\Tire\TireInterface;
 
 interface ComponentFactoryInterface
 {
-    /**
-     * @return HoodInterface
-     */
     public function createHood(): HoodInterface;
-
-    /**
-     * @return TireInterface
-     */
     public function createTire(): TireInterface;
 }
