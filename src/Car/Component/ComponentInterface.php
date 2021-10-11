@@ -6,13 +6,6 @@ namespace Delvesoft\Car\Component;
 
 interface ComponentInterface
 {
-    /**
-     * @return string
-     */
     public function getVendor(): string;
-
-    /**
-     * @return string
-     */
     public function getFullName(): string;
 }
