@@ -5,65 +5,37 @@ declare(strict_types=1);
 namespace Delvesoft\Sandwich;
 
 use Delvesoft\Sandwich\Ingredient\Cheese\CheeseInterface;
+use Delvesoft\Sandwich\Ingredient\IngredientInterface;
 use Delvesoft\Sandwich\Ingredient\Main\MainInterface;
 use Delvesoft\Sandwich\Ingredient\Vegetable\VegetableInterface;
 
 final class Sandwich implements SandwichInterface
 {
-    /** @var MainInterface */
-    private $main;
-
-    /** @var VegetableInterface[] */
-    private $vegetables = [];
-
-    /** @var CheeseInterface */
-    private $cheese;
+    /** @var IngredientInterface[] */
+    private array $ingredients;
 
     /**
-     * @param MainInterface $main
+     * @param IngredientInterface[] $ingredients
      */
-    public function setMainIngredient(MainInterface $main)
+    public function __construct(array $ingredients)
     {
-        $this->main = $main;
+        $this->ingredients = $ingredients;
     }
 
-    /**
-     * @param VegetableInterface $vegetable
-     */
-    public function addVegetable(VegetableInterface $vegetable)
+    public function getIngredients(): array
     {
-        $this->vegetables[get_class($vegetable)] = $vegetable;
+        return $this->ingredients;
     }
 
-    /**
-     * @param CheeseInterface $cheese
-     */
-    public function addCheese(CheeseInterface $cheese)
+    public function getIngredientsList(): string
     {
-        $this->cheese = $cheese;
+        return array_reduce($this->ingredients, function ($carry, IngredientInterface $ingredient) {
+            if ($carry === '') {
+                return $ingredient->getName();
+            }
+
+            return "{$carry}, {$ingredient->getName()}";
+        }, '');
     }
 
-    public function printIngredients()
-    {
-        $outputParts = [];
-        $index = 0;
-        if (!is_null($this->main)) {
-            $outputParts[$index++] = $this->main->getName();
-        }
-
-        if (!is_null($this->cheese)) {
-            $outputParts[$index++] = $this->cheese->getName();
-        }
-
-        /** @var VegetableInterface $item */
-        $vegetableString = implode(', ', array_map(function ($item) {
-            return $item->getName();
-        }, $this->vegetables));
-
-        if (!empty($vegetableString)) {
-            $outputParts[$index] = $vegetableString;
-        }
-
-        echo 'Sandwich: ', implode('; ', $outputParts);
-    }
 }

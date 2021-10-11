@@ -6,9 +6,6 @@ namespace Delvesoft\Sandwich\Ingredient\Main;
 
 class Tuna implements MainInterface
 {
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return 'Tuna';

@@ -6,8 +6,5 @@ namespace Delvesoft\Sandwich\Ingredient;
 
 interface IngredientInterface
 {
-    /**
-     * @return string
-     */
     public function getName(): string;
 }

@@ -5,28 +5,15 @@ declare(strict_types=1);
 namespace Delvesoft\Sandwich;
 
 use Delvesoft\Sandwich\Ingredient\Cheese\CheeseInterface;
+use Delvesoft\Sandwich\Ingredient\IngredientInterface;
 use Delvesoft\Sandwich\Ingredient\Main\MainInterface;
 use Delvesoft\Sandwich\Ingredient\Vegetable\VegetableInterface;
 
 interface SandwichInterface
 {
     /**
-     * @param MainInterface $main
+     * @return IngredientInterface[]
      */
-    public function setMainIngredient(MainInterface $main);
-
-    /**
-     * @param VegetableInterface $vegetable
-     */
-    public function addVegetable(VegetableInterface $vegetable);
-
-    /**
-     * @param CheeseInterface $cheese
-     */
-    public function addCheese(CheeseInterface $cheese);
-
-    /**
-     * @return void
-     */
-    public function printIngredients();
+    public function getIngredients(): array;
+    public function getIngredientsList(): string;
 }
