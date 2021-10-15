@@ -1,6 +1,6 @@
 .*
 !.gitignore
-!src/DesignPattern/.gitkeep
+!src/DesignPattern/.gitignore
 vendor
 composer.lock
 !docker/.env
