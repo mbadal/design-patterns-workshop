@@ -26,8 +26,18 @@ $data    = [
 $headers = [
     'Content-Type' => 'application\json',
 ];
-$sender1 = new HttpRequestSender(/** @TODO */);
+$sender1 = new HttpRequestSender(
+    new \Delvesoft\DesignPattern\Adapter\HttpClientAdapter(
+        new \Delvesoft\Client\Http\HttpClient()
+    )
+);
 $sender1->performRequest($data, $headers);
+echo PHP_EOL;
 
-$sender2 = new HttpRequestSender(/** @TODO */);
+$sender2 = new HttpRequestSender(
+    new \Delvesoft\DesignPattern\Adapter\OtherHttpClientAdapter(
+        new \Delvesoft\Client\Http\OtherHttpClient()
+    )
+);
 $sender2->performRequest($data, $headers);
+echo PHP_EOL;
