@@ -17,6 +17,9 @@ require 'vendor/autoload.php';
  *      - nesmiete menit kontrakt ClientInterface
  *      - nesmiete menit API HTTP klientov, ide o 3rd party software (library), tym padom sa API neda zmenit priamo
  *      - gro riesenia implementuje do balicka 'Delvesoft\DesignPattern\Adapter'
+ *  - Vzorovy vystup:
+ *      Sending request through: [Delvesoft\Client\Http\HttpClient], with headers: [application\json] and data: [a; b]
+ *      Sending request through: [Delvesoft\Client\Http\OtherHttpClient], with headers: [application\json] and data: [a; b]
  */
 
 $data    = [
