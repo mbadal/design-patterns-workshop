@@ -56,11 +56,16 @@ echo $formatter->formatText($easterUser, true), PHP_EOL;
 echo $formatter->formatText($regularUser, true), PHP_EOL;
 
 /* 3. oslovenie */
-echo $formatter->formatText($christmasUser, true, true), PHP_EOL;
-echo $formatter->formatText($easterUser, true, true), PHP_EOL;
-echo $formatter->formatText($regularUser, true, true), PHP_EOL;
+echo $formatter->formatText($christmasUser, false, true), PHP_EOL;
+echo $formatter->formatText($easterUser, false, true), PHP_EOL;
+echo $formatter->formatText($regularUser, false, true), PHP_EOL;
 
 /* 4. oslovenie */
+echo $formatter->formatText($christmasUser, true, true, false), PHP_EOL;
+echo $formatter->formatText($easterUser, true, true, false), PHP_EOL;
+echo $formatter->formatText($regularUser, true, true, false), PHP_EOL;
+
+/* 5. oslovenie */
 echo $formatter->formatText($christmasUser, true, true, true), PHP_EOL;
 echo $formatter->formatText($easterUser, true, true, true), PHP_EOL;
 echo $formatter->formatText($regularUser, true, true, true), PHP_EOL;
