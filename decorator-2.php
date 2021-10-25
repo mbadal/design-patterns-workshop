@@ -26,7 +26,9 @@ require 'vendor/autoload.php';
  */
 
 
-$fixtureLoader = new FixtureLoader(new DatabaseConnection());
+$databaseConnection = new DatabaseConnection();
+$fixtureLoader = new FixtureLoader($databaseConnection);
+$decorator = new \Delvesoft\Fixtures\TransactionRollbackDecorator($databaseConnection, $fixtureLoader);
+$decorator->loadFixtures();
+$decorator->loadFixtures();
 $fixtureLoader->loadFixtures();
-$fixtureLoader->loadFixtures();
-$fixtureLoader->loadFixtures(false);

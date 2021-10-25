@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Fixtures;
 
-class FixtureLoader
+class FixtureLoader implements FixtureLoaderInterface
 {
     private DatabaseConnection $databaseConnection;
 
@@ -13,16 +13,8 @@ class FixtureLoader
         $this->databaseConnection = $databaseConnection;
     }
 
-    public function loadFixtures(bool $withTransaction = true)
+    public function loadFixtures(): void
     {
-        if ($withTransaction === true && $this->databaseConnection->isTransactionActive()) {
-            $this->databaseConnection->rollback();
-        }
-
-        if ($withTransaction === true) {
-            $this->databaseConnection->beginTransaction();
-        }
-
         $this->loadFixturesByDefinition();
     }
 
