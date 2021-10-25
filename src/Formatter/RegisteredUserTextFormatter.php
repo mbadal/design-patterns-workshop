@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Delvesoft\Formatter;
 
+use Delvesoft\DesignPattern\Decorator\FormatterInterface;
 use Delvesoft\User\Entity\RegisteredUser;
 
-class RegisteredUserTextFormatter
+class RegisteredUserTextFormatter implements FormatterInterface
 {
-    public function formatText(RegisteredUser $user, bool $displayTitle = false, bool $displayTimeOfYear = false, bool $titleFirst = false): string
+    public function formatText(RegisteredUser $user): string
     {
-        $output = $user->getName();
+        /*$output = $user->getName();
 
         $title = '';
         if ($displayTitle === true) {
@@ -34,6 +35,8 @@ class RegisteredUserTextFormatter
             $output = "{$timeOfYear} {$title} {$output}";
         }
 
-        return trim($output);
+        return trim($output);*/
+
+        return $user->getName();
     }
 }

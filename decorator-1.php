@@ -51,16 +51,30 @@ echo $formatter->formatText($easterUser), PHP_EOL;
 echo $formatter->formatText($regularUser), PHP_EOL;
 
 /* 2. oslovenie */
-echo $formatter->formatText($christmasUser, true), PHP_EOL;
-echo $formatter->formatText($easterUser, true), PHP_EOL;
-echo $formatter->formatText($regularUser, true), PHP_EOL;
+$formatter = new RegisteredUserTextFormatter();
+$decorator = new \Delvesoft\DesignPattern\Decorator\SalutationDecorator($formatter);
+echo $decorator->formatText($christmasUser), PHP_EOL;
+echo $decorator->formatText($easterUser), PHP_EOL;
+echo $decorator->formatText($regularUser), PHP_EOL;
 
 /* 3. oslovenie */
-echo $formatter->formatText($christmasUser, true, true), PHP_EOL;
-echo $formatter->formatText($easterUser, true, true), PHP_EOL;
-echo $formatter->formatText($regularUser, true, true), PHP_EOL;
+$formatter = new RegisteredUserTextFormatter();
+$decorator = new \Delvesoft\DesignPattern\Decorator\DateOfYearDecorator($formatter);
+echo $decorator->formatText($christmasUser), PHP_EOL;
+echo $decorator->formatText($easterUser), PHP_EOL;
+echo $decorator->formatText($regularUser), PHP_EOL;
 
+$formatter = new RegisteredUserTextFormatter();
+$decorator = new \Delvesoft\DesignPattern\Decorator\SalutationDecorator($formatter);
+$finalDecorator = new \Delvesoft\DesignPattern\Decorator\DateOfYearDecorator($decorator);
 /* 4. oslovenie */
-echo $formatter->formatText($christmasUser, true, true, true), PHP_EOL;
-echo $formatter->formatText($easterUser, true, true, true), PHP_EOL;
-echo $formatter->formatText($regularUser, true, true, true), PHP_EOL;
+echo $finalDecorator->formatText($christmasUser), PHP_EOL;
+echo $finalDecorator->formatText($easterUser), PHP_EOL;
+echo $finalDecorator->formatText($regularUser), PHP_EOL;
+
+$formatter = new RegisteredUserTextFormatter();
+$decorator = new \Delvesoft\DesignPattern\Decorator\DateOfYearDecorator($formatter);
+$finalDecorator = new \Delvesoft\DesignPattern\Decorator\SalutationDecorator($decorator);
+echo $finalDecorator->formatText($christmasUser), PHP_EOL;
+echo $finalDecorator->formatText($easterUser), PHP_EOL;
+echo $finalDecorator->formatText($regularUser), PHP_EOL;
