@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam monochrome true
+
+interface AdapterInterface {
+    +performAction()
+}
+
+class ConcreteAdapter1 {
+    -ConcreteClass1 adaptedClass
+    +performAction()
+}
+
+class ConcreteClass1 {
+    +performPart1()
+    +performPart2()
+}
+
+class ConcreteAdapter2 {
+    -ConcreteClass2 adaptedClass
+    +performAction()
+}
+
+class ConcreteClass2 {
+    +performActionDifferently()
+}
+
+ConcreteAdapter1 o-- ConcreteClass1
+ConcreteAdapter2 o-- ConcreteClass2
+
+AdapterInterface <|.. ConcreteAdapter1
+AdapterInterface <|.. ConcreteAdapter2
+
+note left of ConcreteAdapter1::performAction
+    adaptedClass::performPart1()
+    adaptedClass::performPart2()
+end note
+
+note right of ConcreteAdapter2::performAction
+    adaptedClass::performActionDifferently()
+end note
+
+@enduml
