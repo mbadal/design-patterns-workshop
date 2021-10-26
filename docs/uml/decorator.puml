@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam monochrome true
+
+interface DecoratorInterface {
+    +doSomething()
+}
+
+class BaseClass {
+    +doSomething()
+}
+
+class Decorator1 {
+    -DecoratorInterface decoratedClass
+    +doSomething()
+    -extraMethod1()
+}
+
+class Decorator2 {
+    -DecoratorInterface decoratedClass
+    +doSomething()
+    -extraMethod2()
+}
+
+DecoratorInterface <|.. BaseClass
+DecoratorInterface <|.. Decorator1
+DecoratorInterface <|.. Decorator2
+Decorator1 o-- DecoratorInterface
+Decorator2 o-- DecoratorInterface
+
+note left of Decorator1::doSomething
+    extraMethod1()
+    decoratedObject::doSomething()
+end note
+
+note left of Decorator2::doSomething
+    extraMethod2()
+    decoratedObject::doSomething()
+end note
+
+@enduml
