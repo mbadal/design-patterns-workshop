@@ -6,10 +6,7 @@ namespace Delvesoft\FileSystem;
 
 class Folder extends FolderAbstract
 {
-    /**
-     * @param string $actualPath
-     */
-    public function printPath(string $actualPath)
+    public function printPath(string $actualPath): void
     {
         //@todo
     }

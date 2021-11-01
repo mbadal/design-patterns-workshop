@@ -6,25 +6,16 @@ namespace Delvesoft\FileSystem;
 
 abstract class FolderAbstract implements InodeInterface
 {
-    /** @var string */
-    private $name;
+    private string $name;
 
     /** @var InodeInterface[] */
-    private $children = [];
+    private array $children;
 
-    /**
-     * @param string $name
-     */
     public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @param InodeInterface $child
-     *
-     * @return $this
-     */
     public function addChild(InodeInterface $child): FolderAbstract
     {
         $this->children[$child->getName()] = $child;
@@ -32,17 +23,11 @@ abstract class FolderAbstract implements InodeInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return InodeInterface[]
-     */
     protected function getChildren(): array
     {
         return $this->children;
