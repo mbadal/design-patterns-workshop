@@ -7,6 +7,5 @@ namespace Delvesoft\FileSystem;
 interface InodeInterface
 {
     public function printPath(string $actualPath);
-
     public function getName(): string;
 }
