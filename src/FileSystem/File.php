@@ -8,6 +8,8 @@ class File extends FileAbstract
 {
     public function printPath(string $actualPath): void
     {
-        //@todo
+        echo "{$actualPath}/{$this->getName()}\n";
+
+        return;
     }
 }

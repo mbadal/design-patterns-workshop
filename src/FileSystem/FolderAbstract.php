@@ -9,7 +9,7 @@ abstract class FolderAbstract implements InodeInterface
     private string $name;
 
     /** @var InodeInterface[] */
-    private array $children;
+    private array $children = [];
 
     public function __construct(string $name)
     {

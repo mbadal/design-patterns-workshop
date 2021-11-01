@@ -8,6 +8,15 @@ class Folder extends FolderAbstract
 {
     public function printPath(string $actualPath): void
     {
-        //@todo
+        $children = $this->getChildren();
+        if ($children === []) {
+            echo "{$actualPath}/{$this->getName()}\n";
+
+            return;
+        }
+
+        foreach ($children as $child) {
+            $child->printPath("{$actualPath}/{$this->getName()}");
+        }
     }
 }

@@ -58,9 +58,5 @@ $file11     = new File('file11');
 $rootFolder = new Folder('root');
 $rootFolder->addChild($folder11)->addChild($file11);
 
-/**
- * @todo
- * $treeRoot = new TreeRoot($rootFolder);
- * $treeRoot->printTreeStructure();
- *
- */
+$root = new \Delvesoft\DesignPattern\Composite\UnixRoot($rootFolder);
+$root->printTreeStructure();
