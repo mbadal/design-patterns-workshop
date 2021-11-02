@@ -8,11 +8,6 @@ use Delvesoft\ServiceLayer\ValueObject\Url;
 
 class SimpleClient
 {
-    /**
-     * @param Url $endpoint
-     *
-     * @return array
-     */
     public function download(Url $endpoint): array
     {
         echo "Downloading data from endpoint: {$endpoint}\n";

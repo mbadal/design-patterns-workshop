@@ -14,45 +14,29 @@ class Operation
         self::OPERATION_WITHDRAW => '-',
     ];
 
-    /** @var string */
-    private $operation;
+    private string $operation;
 
-    /**
-     * @param string $operation
-     */
     private function __construct(string $operation)
     {
         $this->operation = $operation;
     }
 
-    /**
-     * @return Operation
-     */
     public static function createWithdraw(): Operation
     {
         return new self(static::OPERATION_WITHDRAW);
     }
 
-    /**
-     * @return Operation
-     */
     public static function createDeposit(): Operation
     {
         return new self(static::OPERATION_DEPOSIT);
     }
 
-    /**
-     * @return bool
-     */
     public function isDeposit(): bool
     {
         return $this->operation === static::OPERATION_DEPOSIT;
     }
 
-    /**
-     * @return bool
-     */
-    public function isWithdraw()
+    public function isWithdraw(): bool
     {
         return $this->operation === static::OPERATION_WITHDRAW;
     }

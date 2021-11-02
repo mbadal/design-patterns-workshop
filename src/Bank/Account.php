@@ -7,13 +7,8 @@ namespace Delvesoft\Bank;
 class Account
 {
     /** @var TransactionInterface[] */
-    private $transactions = [];
+    private array $transactions = [];
 
-    /**
-     * @param TransactionInterface $transaction
-     *
-     * @return Account
-     */
     public function push(TransactionInterface $transaction): Account
     {
         $this->transactions[] = $transaction;
@@ -21,13 +16,10 @@ class Account
         return $this;
     }
 
-    /**
-     * @return float
-     */
     public function getBalance(): float
     {
         printf("Calculating account balance\n");
-        return (float)array_reduce($this->transactions, function ($carry, TransactionInterface $item) {
+        return array_reduce($this->transactions, function ($carry, TransactionInterface $item) {
             if ($item->getOperation()->isDeposit()) {
                 return $carry + $item->getAmount();
             }

@@ -8,9 +8,6 @@ use Delvesoft\Bank\ValueObject\Operation;
 
 interface TransactionInterface
 {
-    /**
-     * @return float
-     */
     public function getAmount(): float;
 
     public function getOperation(): Operation;
