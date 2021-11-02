@@ -24,18 +24,18 @@ require 'vendor/autoload.php';
  *      float(21.7)
  */
 
-$account = new Account();
-$account->push(new Transaction(15.1, Operation::createDeposit()));
-$account->push(new Transaction(2.7, Operation::createWithdraw()));
-$account->push(new Transaction(1.0, Operation::createWithdraw()));
-$account->push(new Transaction(0.5, Operation::createWithdraw()));
-$account->push(new Transaction(10.8, Operation::createDeposit()));
+$proxy = new \Delvesoft\DesignPattern\Proxy\Bank\AccountProxy();
+$proxy->push(new Transaction(15.1, Operation::createDeposit()));
+$proxy->push(new Transaction(2.7, Operation::createWithdraw()));
+$proxy->push(new Transaction(1.0, Operation::createWithdraw()));
+$proxy->push(new Transaction(0.5, Operation::createWithdraw()));
+$proxy->push(new Transaction(10.8, Operation::createDeposit()));
 
 function printAccountBalance(Account $account)
 {
     var_dump($account->getBalance());
 }
 
-printAccountBalance($account);
-printAccountBalance($account);
-printAccountBalance($account);
+printAccountBalance($proxy);
+printAccountBalance($proxy);
+printAccountBalance($proxy);
