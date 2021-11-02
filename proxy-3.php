@@ -9,6 +9,8 @@ use Delvesoft\Mvc\Dispatcher;
 use Delvesoft\Mvc\Router;
 use Delvesoft\Mvc\ValueObject\ControllerAction;
 use Delvesoft\Mvc\ValueObject\RelativeUrl;
+use Delvesoft\DesignPattern\Proxy\Mvc\ProxyB;
+use Delvesoft\DesignPattern\Proxy\Mvc\ProxyA;
 
 require 'vendor/autoload.php';
 
@@ -33,12 +35,14 @@ require 'vendor/autoload.php';
 
 $authService = new AuthService();
 $container   = [
-    ControllerA::class => new ControllerA(
+    ControllerA::class => new ProxyA(
+        new ControllerA(),
         $authService
     ),
-    ControllerB::class => new ControllerB(
+    ControllerB::class => new ProxyB(
+        new ControllerB(),
         $authService
-    )
+    ),
 ];
 
 $router = new Router();
