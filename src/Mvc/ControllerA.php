@@ -6,12 +6,8 @@ namespace Delvesoft\Mvc;
 
 class ControllerA
 {
-    /** @var AuthService */
-    private $authService;
+    private AuthService $authService;
 
-    /**
-     * @param AuthService $authService
-     */
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;

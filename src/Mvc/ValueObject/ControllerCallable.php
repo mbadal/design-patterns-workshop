@@ -10,27 +10,17 @@ use RuntimeException;
 class ControllerCallable
 {
     /** @var object */
-    private $object;
+    private object $object;
 
     /** @var string */
-    private $action;
+    private string $action;
 
-    /**
-     * @param mixed  $object
-     * @param string $action
-     */
     private function __construct($object, string $action)
     {
         $this->object = $object;
         $this->action = $action;
     }
 
-    /**
-     * @param  object $object
-     * @param string  $action
-     *
-     * @return ControllerCallable
-     */
     public static function createFromScalars($object, string $action): ControllerCallable
     {
         if (!is_object($object)) {
@@ -40,9 +30,6 @@ class ControllerCallable
         return new self($object, $action);
     }
 
-    /**
-     * @return Response
-     */
     public function call(): Response
     {
         return call_user_func([$this->object, $this->action]);

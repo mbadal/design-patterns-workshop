@@ -11,14 +11,8 @@ use Delvesoft\Mvc\ValueObject\RelativeUrl;
 class Router
 {
     /** @var ControllerAction[] */
-    private $routes = [];
+    private array $routes = [];
 
-    /**
-     * @param RelativeUrl      $url
-     * @param ControllerAction $action
-     *
-     * @return Router
-     */
     public function registerRoute(RelativeUrl $url, ControllerAction $action): Router
     {
         $this->routes[$url->__toString()] = $action;
