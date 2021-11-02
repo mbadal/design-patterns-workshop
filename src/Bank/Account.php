@@ -20,11 +20,7 @@ class Account
     {
         printf("Calculating account balance\n");
         return array_reduce($this->transactions, function ($carry, TransactionInterface $item) {
-            if ($item->getOperation()->isDeposit()) {
-                return $carry + $item->getAmount();
-            }
-
-            return $carry - $item->getAmount();
+            return $item->getOperation()->calculate($carry, $item->getAmount());
         }, 0.0);
     }
 }
