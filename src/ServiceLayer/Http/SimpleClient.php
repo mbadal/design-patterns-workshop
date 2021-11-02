@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Delvesoft\ServiceLayer\Http;
 
+use Delvesoft\DesignPattern\Proxy\Http\SimpleClientInterface;
 use Delvesoft\ServiceLayer\ValueObject\Url;
 
-class SimpleClient
+class SimpleClient implements SimpleClientInterface
 {
     /**
      * @param Url $endpoint

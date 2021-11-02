@@ -20,12 +20,13 @@ require 'vendor/autoload.php';
  *      int(500)
  */
 
-function testClient(SimpleClient $client, Url $url)
+function testClient(\Delvesoft\DesignPattern\Proxy\Http\SimpleClientInterface $client, Url $url)
 {
     var_dump(count($client->download($url)));
 }
 
 $client = new SimpleClient();
+$proxy = new \Delvesoft\DesignPattern\Proxy\Http\SimpleClientProxy($client);
 $url    = Url::createFromString('https://jsonplaceholder.typicode.com/comments');
-testClient($client, $url);
-testClient($client, $url);
+testClient($proxy, $url);
+testClient($proxy, $url);
