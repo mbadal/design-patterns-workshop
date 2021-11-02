@@ -8,33 +8,21 @@ use Delvesoft\Bank\ValueObject\Operation;
 
 class Transaction implements TransactionInterface
 {
-    /** @var float */
-    private $amount;
+    private float $amount;
 
-    /** @var Operation */
-    private $operation;
+    private Operation $operation;
 
-    /**
-     * @param float     $amount
-     * @param Operation $operation
-     */
     public function __construct(float $amount, Operation $operation)
     {
         $this->amount    = $amount;
         $this->operation = $operation;
     }
 
-    /**
-     * @return float
-     */
     public function getAmount(): float
     {
         return $this->amount;
     }
 
-    /**
-     * @return Operation
-     */
     public function getOperation(): Operation
     {
         return $this->operation;
