@@ -9,28 +9,16 @@ use RuntimeException;
 
 class ControllerAction
 {
-    /** @var string */
-    private $key;
+    private string $key;
 
-    /** @var string */
-    private $method;
+    private string $method;
 
-    /**
-     * @param string $key
-     * @param string $method
-     */
     private function __construct(string $key, string $method)
     {
         $this->key    = $key;
         $this->method = $method;
     }
 
-    /**
-     * @param string $key
-     * @param string $method
-     *
-     * @return ControllerAction
-     */
     public static function createFromStrings(string $key, string $method): ControllerAction
     {
         if (!class_exists($key)) {
@@ -40,11 +28,6 @@ class ControllerAction
         return new self($key, $method);
     }
 
-    /**
-     * @param array $container
-     *
-     * @return ControllerCallable
-     */
     public function instantiate(array $container): ControllerCallable
     {
         if (!isset($container[$this->key])) {

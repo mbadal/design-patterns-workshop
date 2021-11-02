@@ -9,27 +9,15 @@ use Delvesoft\Mvc\ValueObject\RelativeUrl;
 
 class Dispatcher
 {
-    /** @var Router */
-    private $router;
+    private Router $router;
+    private array $container = [];
 
-    /** @var array */
-    private $container = [];
-
-    /**
-     * @param Router $router
-     * @param array  $container
-     */
     public function __construct(Router $router, array $container)
     {
         $this->router    = $router;
         $this->container = $container;
     }
 
-    /**
-     * @param RelativeUrl $url
-     *
-     * @return Response
-     */
     public function handleRequest(RelativeUrl $url): Response
     {
         try {
