@@ -8,12 +8,6 @@ class Operation
 {
     const OPERATION_DEPOSIT  = 'deposit';
     const OPERATION_WITHDRAW = 'withdraw';
-
-    const OPERATION_SIGN = [
-        self::OPERATION_DEPOSIT  => '+',
-        self::OPERATION_WITHDRAW => '-',
-    ];
-
     private string $operation;
 
     private function __construct(string $operation)
@@ -31,13 +25,12 @@ class Operation
         return new self(static::OPERATION_DEPOSIT);
     }
 
-    public function isDeposit(): bool
+    public function calculate(float $a, float $b): float
     {
-        return $this->operation === static::OPERATION_DEPOSIT;
-    }
+        if ($this->operation === static::OPERATION_DEPOSIT) {
+            return $a + $b;
+        }
 
-    public function isWithdraw(): bool
-    {
-        return $this->operation === static::OPERATION_WITHDRAW;
+        return $a - $b;
     }
 }
