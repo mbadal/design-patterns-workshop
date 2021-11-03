@@ -33,9 +33,12 @@ class Branch {
 
 }
 
-class Client {
+class Root {
     ItemInterface root
     +void printStructure()
+}
+
+class Client {
 }
 
 ItemInterface <|-- LeafInterface
@@ -43,7 +46,8 @@ ItemInterface <|-- BranchInterface
 LeafInterface <|.. Leaf
 BranchInterface <|.. Branch
 ItemInterface "m" --* "1" Branch
-ItemInterface "1" --* "1" Client
+ItemInterface "1" --* "1" Root
+Root --o Client
 
 
 @enduml
