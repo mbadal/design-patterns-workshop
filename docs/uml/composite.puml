@@ -33,11 +33,17 @@ class Branch {
 
 }
 
+class Client {
+    ItemInterface root
+    +void printStructure
+}
+
 ItemInterface <|-- LeafInterface
 ItemInterface <|-- BranchInterface
 LeafInterface <|.. Leaf
 BranchInterface <|.. Branch
 ItemInterface "m" --* "1" Branch
+ItemInterface "1" --* "1" Client
 
 
 @enduml
