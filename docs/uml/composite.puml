@@ -1,0 +1,43 @@
+@startuml
+
+skinparam monochrome true
+
+interface ItemInterface {
+    +string getName()
+    +void printStructure(string actualPath)
+}
+
+interface LeafInterface {
+    +string getName()
+    +void printStructure(string actualPath)
+}
+
+interface BranchInterface {
+    +string getName()
+    +void printStructure(string actualPath)
+    #ItemInterface[] getChildren()
+}
+
+class Leaf {
+    -string name
+    +string getName()
+    +void printStructure(string actualPath)
+}
+
+class Branch {
+    -ItemInterface[] children
+    -string name
+    +string getName()
+    +void printStructure(string actualPath)
+    #ItemInterface[] getChildren()
+
+}
+
+ItemInterface <|-- LeafInterface
+ItemInterface <|-- BranchInterface
+LeafInterface <|.. Leaf
+BranchInterface <|.. Branch
+ItemInterface "m" --* "1" Branch
+
+
+@enduml
