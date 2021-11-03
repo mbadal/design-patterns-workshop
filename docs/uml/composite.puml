@@ -7,17 +7,6 @@ interface ItemInterface {
     +void printStructure(string actualPath)
 }
 
-interface LeafInterface {
-    +string getName()
-    +void printStructure(string actualPath)
-}
-
-interface BranchInterface {
-    +string getName()
-    +void printStructure(string actualPath)
-    #ItemInterface[] getChildren()
-}
-
 class Leaf {
     -string name
     +string getName()
@@ -41,10 +30,8 @@ class Root {
 class Client {
 }
 
-ItemInterface <|-- LeafInterface
-ItemInterface <|-- BranchInterface
-LeafInterface <|.. Leaf
-BranchInterface <|.. Branch
+ItemInterface <|.. Leaf
+ItemInterface <|.. Branch
 ItemInterface "m" --* "1" Branch
 ItemInterface "1" --* "1" Root
 Root --o Client
