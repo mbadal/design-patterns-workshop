@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+skinparam monochrome true
+
+interface ServiceInterface {
+    +operation()
+}
+
+class Service {
+    +operation()
+}
+
+class ServiceProxy {
+    -ServiceInterface proxiedClass
+    +__construct(ServiceInterface service)
+    +operation()
+    -checkAccess()
+}
+
+ServiceInterface <|.. Service
+ServiceInterface <|.. ServiceProxy
+ServiceProxy o-- Service
+
+note left of ServiceProxy::operation
+    ServiceProxy:checkAccess
+    Service::operation
+end note
+
+@enduml
