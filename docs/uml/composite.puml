@@ -35,7 +35,7 @@ class Branch {
 
 class Client {
     ItemInterface root
-    +void printStructure
+    +void printStructure()
 }
 
 ItemInterface <|-- LeafInterface
