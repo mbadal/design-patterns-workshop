@@ -44,6 +44,7 @@ $registry
 $compressor = new Compressor();
 $saver      = new DocumentSaver();
 
+/** 1. priklad                             */
 $contents = $downloader->downloadDocument(
     Url::createFromString('http://test1.url.sk')
 );
@@ -54,7 +55,11 @@ $pdf      = $registry->convertDocument(
 
 $pdf = $compressor->compressDocument($pdf);
 $saver->save($pdf, '/dev/null', 'testing-pdf');
+/** -------------------------------------  */
+echo '-------------------------------------';
+echo PHP_EOL;
 
+/** 2. priklad                             */
 $contents = $downloader->downloadDocument(
     Url::createFromString('http://test2.url.sk')
 );
