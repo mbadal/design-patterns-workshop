@@ -3,10 +3,9 @@ declare(strict_types=1);
 
 namespace Delvesoft\Shape;
 
+use Delvesoft\Drawer\DrawerInterface;
+
 interface ShapeInterface
 {
-    /**
-     * @return void
-     */
-    public function draw();
+    public function draw(DrawerInterface $drawer): void;
 }
