@@ -12,7 +12,7 @@ use Delvesoft\Home\Device\Radio;
  * - V balicku Delvesoft\Home\Device su implementovane dva typy zariadeni
  * - V balicku Delvesoft\Home\Remote su dva typy ovladacov
  * - Pridajte:
- *      - Novy typ zariadenia - Tonove inteligentne papuce - premietaju TV vysielanie
+ *      - Novy typ zariadenia - Dezove inteligentne papuce - premietaju TV vysielanie
  *      - Novy typ ovladaca, ktory podporuje aj "mutovanie zariadenia"
  *      - Novy typ ovladaca, ktory prepina po 10 kanaloch hore a 4 dole (okrem klasickeho prepinania kanalov)
  * - Podmienky:
