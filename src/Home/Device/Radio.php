@@ -21,14 +21,14 @@ class Radio
         return $this->isEnabled;
     }
 
-    public function enable()
+    public function enable(): void
     {
         printf("Toggling Radio on\n");
         $this->isEnabled = true;
 
     }
 
-    public function disable()
+    public function disable(): void
     {
         printf("Toggling Radio off\n");
         $this->isEnabled = false;
@@ -44,13 +44,13 @@ class Radio
         return $this->channel;
     }
 
-    public function setVolume(int $volumeToSet)
+    public function setVolume(int $volumeToSet): void
     {
         printf("Setting volume on Radio to %s\n", $volumeToSet);
         $this->volume = $volumeToSet;
     }
 
-    public function setChannel(int $channelCode)
+    public function setChannel(int $channelCode): void
     {
         printf("Setting volume on Radio to %s\n", $channelCode);
         $this->channel = $channelCode;
