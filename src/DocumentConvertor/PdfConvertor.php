@@ -9,11 +9,6 @@ use Delvesoft\DocumentConvertor\ValueObject\DocumentFormat;
 
 class PdfConvertor implements ConvertorInterface
 {
-    /**
-     * @param string $contents
-     *
-     * @return Document
-     */
     public function convert(string $contents): Document
     {
         printf("Converting document to PDF\n");
@@ -21,9 +16,6 @@ class PdfConvertor implements ConvertorInterface
         return new Document($contents);
     }
 
-    /**
-     * @return DocumentFormat
-     */
     public function getFormat(): DocumentFormat
     {
         return DocumentFormat::createPdfFormat();

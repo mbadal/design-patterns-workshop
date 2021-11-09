@@ -11,13 +11,8 @@ use InvalidArgumentException;
 class ConvertorRegistry
 {
     /** @var ConvertorInterface[] */
-    private $convertors = [];
+    private array $convertors = [];
 
-    /**
-     * @param ConvertorInterface $convertor
-     *
-     * @return ConvertorRegistry
-     */
     public function registerConvertor(ConvertorInterface $convertor): ConvertorRegistry
     {
         $this->convertors[$convertor->getFormat()->__toString()] = $convertor;

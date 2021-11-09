@@ -6,20 +6,13 @@ namespace Delvesoft\DocumentConvertor\Dto;
 
 class Document
 {
-    /** @var string */
-    private $contents;
+    private string $contents;
 
-    /**
-     * @param string $contents
-     */
     public function __construct(string $contents)
     {
         $this->contents = $contents;
     }
-
-    /**
-     * @return string
-     */
+    
     public function getContents(): string
     {
         return $this->contents;

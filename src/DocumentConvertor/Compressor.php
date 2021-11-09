@@ -8,11 +8,6 @@ use Delvesoft\DocumentConvertor\Dto\Document;
 
 class Compressor
 {
-    /**
-     * @param Document $document
-     *
-     * @return Document
-     */
     public function compressDocument(Document $document): Document
     {
         printf("Compressing document\n");
