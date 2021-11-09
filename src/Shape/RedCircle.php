@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Delvesoft\Shape;
 
 use Delvesoft\Drawer\DrawerInterface;
+use Delvesoft\Shape\Color\Color;
 use Delvesoft\Shape\Point\Point;
 
 class RedCircle implements ShapeInterface
@@ -20,5 +21,10 @@ class RedCircle implements ShapeInterface
     public function draw(DrawerInterface $drawer): void
     {
         //@todo
+    }
+
+    public function getColor(): string
+    {
+        return Color::COLOR_RED;
     }
 }
