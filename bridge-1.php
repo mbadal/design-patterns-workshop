@@ -15,18 +15,18 @@ use Delvesoft\Shape\RedCircle;
  * - Vytvorte triedu, ktora reprezentuje trojuholnik, ktora musi podporovat vsetky 3 farby
  * - Upozornenie: - atribut farba sa pouziva len pri vykreslovani utvarov, nie pri ic reprezentacii
  * - Vystup:
- *      --- Red Square ---
+ *      --- Square ---
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
  *      ------------------
- *      --- Blue Triangle ---
+ *      --- Triangle ---
  *      Printing line between point: [X, Y] and point: [A, B] with color: [blue]
  *      Printing line between point: [X, Y] and point: [A, B] with color: [blue]
  *      Printing line between point: [X, Y] and point: [A, B] with color: [blue]
  *      ---------------------
- *      --- Green Circle ---
+ *      --- Circle ---
  *      Printing point: [X, Y] with color: [green]
  *      ... Vypisat vsetky body kruznice ...
  *      --------------------
