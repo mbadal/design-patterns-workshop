@@ -52,7 +52,7 @@ class Radio
 
     public function setChannel(int $channelCode): void
     {
-        printf("Setting volume on Radio to %s\n", $channelCode);
+        printf("Setting channel on Radio to %s\n", $channelCode);
         $this->channel = $channelCode;
     }
 }
