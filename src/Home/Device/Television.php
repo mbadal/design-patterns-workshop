@@ -21,13 +21,13 @@ class Television implements DeviceInterface
         return $this->isEnabled;
     }
 
-    public function enable()
+    public function enable(): void
     {
         printf("Toggling TV on\n");
         $this->isEnabled = true;
     }
 
-    public function disable()
+    public function disable(): void
     {
         printf("Toggling TV off\n");
         $this->isEnabled = false;
@@ -43,13 +43,13 @@ class Television implements DeviceInterface
         return $this->channel;
     }
 
-    public function setVolume(int $volumeToSet)
+    public function setVolume(int $volumeToSet): void
     {
         printf("Setting volume on TV to %s\n", $volumeToSet);
         $this->volume = $volumeToSet;
     }
 
-    public function setChannel(int $channelNumber)
+    public function setChannel(int $channelNumber): void
     {
         printf("Setting channel on TV to %s\n", $channelNumber);
         $this->channel = $channelNumber;
