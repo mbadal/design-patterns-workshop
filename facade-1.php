@@ -10,6 +10,7 @@ use Delvesoft\DocumentConvertor\PdfConvertor;
 use Delvesoft\DocumentConvertor\ValueObject\DocumentFormat;
 use Delvesoft\DocumentConvertor\ValueObject\Url;
 use Delvesoft\DocumentConvertor\WordConvertor;
+use Delvesoft\DesignPattern\Facade\DocumentConvertorFacade;
 
 require 'vendor/autoload.php';
 
@@ -45,27 +46,26 @@ $compressor = new Compressor();
 $saver      = new DocumentSaver();
 
 /** 1. priklad                             */
-$contents = $downloader->downloadDocument(
-    Url::createFromString('http://test1.url.sk')
+$facade = new DocumentConvertorFacade(
+    $downloader,
+    $registry,
+    $compressor,
+    $saver
 );
-$pdf      = $registry->convertDocument(
-    $contents,
-    DocumentFormat::createPdfFormat()
+$facade->downloadConvertCompressAndSaveDocument(
+    'http://test1.url.sk',
+    DocumentFormat::FORMAT_PDF,
+    '/dev/null',
+    'testing-pdf'
 );
-
-$pdf = $compressor->compressDocument($pdf);
-$saver->save($pdf, '/dev/null', 'testing-pdf');
 /** -------------------------------------  */
 echo '-------------------------------------';
 echo PHP_EOL;
 
 /** 2. priklad                             */
-$contents = $downloader->downloadDocument(
-    Url::createFromString('http://test2.url.sk')
+$facade->downloadConvertCompressAndSaveDocument(
+    'http://test2.url.sk',
+    DocumentFormat::FORMAT_WORD,
+    '/dev/null',
+    'testing-word'
 );
-$word = $registry->convertDocument(
-    $contents,
-    DocumentFormat::createWordFormat()
-);
-$word = $compressor->compressDocument($word);
-$saver->save($word, '/dev/null', 'testing-word');
