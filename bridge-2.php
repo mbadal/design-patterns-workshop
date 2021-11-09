@@ -22,9 +22,9 @@ use Delvesoft\Home\Device\Radio;
  * - Vystup:
  *      --- Radio ---
  *      Toggling Radio on
- *      Setting volume on Radio to 2
- *      Setting volume on Radio to 3
- *      Setting volume on Radio to 2
+ *      Setting channel on Radio to 2
+ *      Setting channel on Radio to 3
+ *      Setting channel on Radio to 2
  *      Setting volume on Radio to 11
  *      Setting volume on Radio to 12
  *      Setting volume on Radio to 13
