@@ -8,7 +8,7 @@ use Delvesoft\Drawer\DrawerInterface;
 use Delvesoft\Shape\Color\Color;
 use Delvesoft\Shape\Point\Point;
 
-class RedSquare implements ShapeInterface
+class Square implements ShapeInterface
 {
     private Point $point1;
     private Point $point2;
@@ -25,11 +25,15 @@ class RedSquare implements ShapeInterface
 
     public function draw(DrawerInterface $drawer): void
     {
-        //@todo
-    }
-
-    public function getColor(): string
-    {
-        return Color::COLOR_RED;
+        echo '--- Square ---', PHP_EOL;
+        $drawer->drawLine($this->point1, $this->point2);
+        echo PHP_EOL;
+        $drawer->drawLine($this->point2, $this->point3);
+        echo PHP_EOL;
+        $drawer->drawLine($this->point3, $this->point4);
+        echo PHP_EOL;
+        $drawer->drawLine($this->point4, $this->point1);
+        echo PHP_EOL;
+        echo '--------------', PHP_EOL;
     }
 }

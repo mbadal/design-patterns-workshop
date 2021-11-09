@@ -6,13 +6,12 @@ declare(strict_types=1);
 namespace Delvesoft\Drawer;
 
 
-use Delvesoft\Shape\Point\Point;
+use Delvesoft\Shape\Color\Color;
 
-class NullDrawer extends AbstractDrawer
+class RedDrawer extends AbstractDrawer
 {
     protected function getColor(): string
     {
-        return 'NULL';
+        return Color::COLOR_RED;
     }
-
 }

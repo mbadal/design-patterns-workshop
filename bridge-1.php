@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Delvesoft\Shape\BlueSquare;
+use Delvesoft\Shape\Square;
 use Delvesoft\Shape\Point\Point;
-use Delvesoft\Drawer\NullDrawer;
-use Delvesoft\Shape\RedCircle;
+use Delvesoft\Shape\Circle;
+use Delvesoft\Drawer\RedDrawer;
+use Delvesoft\Drawer\GreenDrawer;
+use Delvesoft\Shape\Triangle;
+use Delvesoft\Drawer\BlueDrawer;
 
 /**
  * Instrukcie:
  * - Pridajte zelenu farbu do utvarov
  * - Vytvorte triedu, ktora reprezentuje trojuholnik, ktora musi podporovat vsetky 3 farby
- * - Upozornenie: - atribut farba sa pouziva len pri vykreslovani utvarov, nie pri ic reprezentacii
+ * - Upozornenie: - atribut farba sa pouziva len pri vykreslovani utvarov, nie pri ich reprezentacii
  * - Vystup:
  *      --- Square ---
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
@@ -32,21 +35,30 @@ use Delvesoft\Shape\RedCircle;
  *      --------------------
  */
 
-$blueSquare = new BlueSquare(
+$square = new Square(
     Point::createFromCoordinates(0.0, 0.0),
     Point::createFromCoordinates(3.0, 0.0),
     Point::createFromCoordinates(3.0, 3.0),
     Point::createFromCoordinates(0.0, 3.0)
 );
-$blueSquare->draw(
-    new NullDrawer()
+$square->draw(
+    new RedDrawer()
 );
 
+$triangle = new Triangle(
+    Point::createFromCoordinates(0.0, 0.0),
+    Point::createFromCoordinates(3.0, 0.0),
+    Point::createFromCoordinates(0.0, 4.0),
+);
 
-$redCircle = new RedCircle(
+$triangle->draw(
+    new BlueDrawer()
+);
+
+$circle = new Circle(
     5.0,
     Point::createFromCoordinates(0.0, 0.0)
 );
-$redCircle->draw(
-    new NullDrawer()
+$circle->draw(
+    new GreenDrawer()
 );
