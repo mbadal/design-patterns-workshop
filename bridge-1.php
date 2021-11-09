@@ -13,7 +13,7 @@ use Delvesoft\Shape\RedCircle;
  * Instrukcie:
  * - Pridajte zelenu farbu do utvarov
  * - Vytvorte triedu, ktora reprezentuje trojuholnik, ktora musi podporovat vsetky 3 farby
- * - Upozornenie: - atribut farba sa pouziva len pri vykreslovani utvarov, nie pri ic reprezentacii
+ * - Upozornenie: - atribut farba sa pouziva len pri vykreslovani utvarov, nie pri ich reprezentacii
  * - Vystup:
  *      --- Square ---
  *      Printing line between point: [X, Y] and point: [A, B] with color: [red]
