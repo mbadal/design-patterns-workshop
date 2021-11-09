@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
+
 namespace Delvesoft\Home\Device;
 
-class Television implements DeviceInterface
+
+class IntelligentSlippers implements DeviceInterface
 {
     private bool $isEnabled = false;
     private int $volume;
@@ -21,15 +23,16 @@ class Television implements DeviceInterface
         return $this->isEnabled;
     }
 
-    public function enable()
+    public function enable(): void
     {
-        printf("Toggling TV on\n");
+        printf("Toggling Slippers on\n");
         $this->isEnabled = true;
+
     }
 
-    public function disable()
+    public function disable(): void
     {
-        printf("Toggling TV off\n");
+        printf("Toggling Slippers off\n");
         $this->isEnabled = false;
     }
 
@@ -43,15 +46,15 @@ class Television implements DeviceInterface
         return $this->channel;
     }
 
-    public function setVolume(int $volumeToSet)
+    public function setVolume(int $volumeToSet): void
     {
-        printf("Setting volume on TV to %s\n", $volumeToSet);
+        printf("Setting volume on Slippers to %s\n", $volumeToSet);
         $this->volume = $volumeToSet;
     }
 
-    public function setChannel(int $channelNumber)
+    public function setChannel(int $channelCode): void
     {
-        printf("Setting channel on TV to %s\n", $channelNumber);
-        $this->channel = $channelNumber;
+        printf("Setting volume on Slippers to %s\n", $channelCode);
+        $this->channel = $channelCode;
     }
 }

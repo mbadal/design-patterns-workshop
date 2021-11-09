@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delvesoft\Home\Device;
 
-class Radio
+class Radio implements DeviceInterface
 {
     private bool $isEnabled = false;
     private int $volume;

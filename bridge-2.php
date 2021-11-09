@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Delvesoft\Home\Remote\RadioRemote;
+use Delvesoft\Home\Remote\StandardRemote;
 use Delvesoft\Home\Device\Radio;
 
 /**
@@ -32,7 +32,7 @@ use Delvesoft\Home\Device\Radio;
  *      -------------
  */
 
-$radioRemote = new RadioRemote(
+$radioRemote = new StandardRemote(
     new Radio()
 );
 
