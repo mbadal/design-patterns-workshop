@@ -1,0 +1,81 @@
+@startuml
+
+skinparam monochrome true
+
+interface Interface {
+    +method1()
+    +method2()
+    +method3()
+}
+
+
+interface ExtendedInterface {
+    +method4()
+}
+
+class InterfaceRealisation1 {
+    -Platform platform
+    +method1()
+    +method2()
+    +method3()
+}
+
+class InterfaceRealisation2 {
+    -Platform platform
+    +method1()
+    +method2()
+    +method3()
+}
+
+class ExtendedInterfaceRealisation1 {
+        -Platform platform
+        +method1()
+        +method2()
+        +method3()
+        +method4()
+}
+
+Interface <|-- ExtendedInterface
+
+Interface <|.. InterfaceRealisation1
+Interface <|.. InterfaceRealisation2
+
+ExtendedInterface <|.. ExtendedInterfaceRealisation1
+
+InterfaceRealisation1 o-- Platform
+InterfaceRealisation2 o-- Platform
+ExtendedInterfaceRealisation1 o-- Platform
+
+interface Platform {
+    +platformOperation1()
+    +platformOperation2()
+    +platformOperation3()
+}
+
+class Platform1 {
+    +platformOperation1()
+    +platformOperation2()
+    +platformOperation3()
+}
+
+class Platform2 {
+    +platformOperation1()
+    +platformOperation2()
+    +platformOperation3()
+}
+
+class Platform3 {
+    +platformOperation1()
+    +platformOperation2()
+    +platformOperation3()
+}
+
+Platform <|.. Platform1
+Platform <|.. Platform2
+Platform <|.. Platform3
+
+note left of InterfaceRealisation1::method1
+    Platform::platformOperation1()
+end note
+
+@enduml
