@@ -1,0 +1,41 @@
+@startuml
+
+skinparam monochrome true
+
+class Component1 {
+    +componentOperationA()
+}
+
+class Component2 {
+    +componentOperationB()
+}
+
+class Component3 {
+    +componentOperationC()
+}
+
+class Component4 {
+    +componentOperationD()
+}
+
+class Facade {
+    -Component1 component1
+    -Component2 component2
+    -Component3 component3
+    -Component4 component4
+    +compositeOperation(...params)
+}
+
+Facade o-- Component1
+Facade o-- Component2
+Facade o-- Component3
+Facade o-- Component4
+
+note left of Facade::compositeOperation
+ Component1::componentOperationA();
+ Component2::componentOperationB();
+ Component3::componentOperationC();
+ Component4::componentOperationD();
+end note
+
+@enduml
