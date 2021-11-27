@@ -1,7 +1,7 @@
 version: '3'
 services:
   php:
-    image: webdevops/php-dev:${PHP_VERSION:-latest}
+    image: webdevops/php-dev:${PHP_VERSION}
     ports:
       - ${PHP_SERVER_PORT:-9001}:9001
       - ${PHP_PORT:-9999}:9000
