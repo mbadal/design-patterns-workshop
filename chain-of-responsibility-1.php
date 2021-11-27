@@ -24,6 +24,26 @@ require_once 'vendor/autoload.php';
  *      - Implementujte zmeny v kode aplikovanim Chain of responsibility patternu.
  *      - Kod by mal byt konfigurovatelny - malo by byt schopne docielit 3 pripady pouzitia aj bez IF-ov.
  *      - Vyuzite `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStep`.
+ * Vystup:
+ *      Putting on clothes
+ *      Turning off the lights
+ *      Putting on shoes
+ *      Locking the door
+ *      House leaving successful
+ *      --------
+ *
+ *      Turning off the lights
+ *      Putting on clothes
+ *      Putting on shoes
+ *      Locking the door
+ *      House leaving successful
+ *      --------
+ *      Putting on shoes
+ *      Turning off the lights
+ *      Putting on clothes
+ *      Locking the door
+ *      House leaving successful
+ *      --------
  */
 
 
