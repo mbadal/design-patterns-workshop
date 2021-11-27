@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-use Delvesoft\Home\HouseLeavingProcedure;
+use Delvesoft\DesignPattern\ChainOfResponsibility\DressUpStep;
+use Delvesoft\DesignPattern\ChainOfResponsibility\LockTheDoorStep;
+use Delvesoft\DesignPattern\ChainOfResponsibility\PutOnShoesStep;
+use Delvesoft\DesignPattern\ChainOfResponsibility\TurnOffLightsStep;
 
 require_once 'vendor/autoload.php';
 
@@ -24,8 +27,45 @@ require_once 'vendor/autoload.php';
  */
 
 
-$procedure = new HouseLeavingProcedure();
+$dressUpStep       = new DressUpStep();
+$turnOffLightsStep = new TurnOffLightsStep();
+$putOnShoesStep    = new PutOnShoesStep();
+$lockTheDoorStep   = new LockTheDoorStep();
 
-$procedure->process();
+$chain1 = $dressUpStep->setNext(
+    $turnOffLightsStep->setNext(
+        $putOnShoesStep->setNext(
+            $lockTheDoorStep
+        )
+    )
+);
+$chain1->process();
 //finally
 printf('House leaving successful%s', PHP_EOL);
+printf('--------%s%s', PHP_EOL, PHP_EOL);
+
+$chain2 = $turnOffLightsStep->setNext(
+    $dressUpStep->setNext(
+        $putOnShoesStep->setNext(
+            $lockTheDoorStep
+        )
+    )
+);
+
+$chain2->process();
+//finally
+printf('House leaving successful%s', PHP_EOL);
+printf('--------%s%s', PHP_EOL, PHP_EOL);
+
+$chain3 = $putOnShoesStep->setNext(
+    $turnOffLightsStep->setNext(
+        $dressUpStep->setNext(
+            $lockTheDoorStep
+        )
+    )
+);
+
+$chain3->process();
+//finally
+printf('House leaving successful%s', PHP_EOL);
+printf('--------%s%s', PHP_EOL, PHP_EOL);
