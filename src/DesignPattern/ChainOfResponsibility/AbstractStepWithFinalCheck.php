@@ -19,13 +19,12 @@ abstract class AbstractStepWithFinalCheck
 
     public abstract function process(HouseLeavingRequestWithFinalCheck $request): void;
 
-    protected function hasNext(): bool
+    protected function processNext(HouseLeavingRequestWithFinalCheck $request): void
     {
-        return ($this->next !== null);
-    }
+        if ($this->next === null) {
+            return;
+        }
 
-    protected function getNext(): ?AbstractStepWithFinalCheck
-    {
-        return $this->next;
+        $this->next->process($request);
     }
 }
