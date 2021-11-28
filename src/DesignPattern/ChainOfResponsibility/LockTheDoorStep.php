@@ -8,7 +8,7 @@ namespace Delvesoft\DesignPattern\ChainOfResponsibility;
 
 class LockTheDoorStep extends AbstractStep
 {
-    public function process(): void
+    public function process(HouseLeavingRequest $request): void
     {
         printf('Locking the door%s', PHP_EOL);
 
@@ -16,7 +16,7 @@ class LockTheDoorStep extends AbstractStep
             return;
         }
 
-        $this->getNext()->process();
+        $this->getNext()->process($request);
     }
 
 }

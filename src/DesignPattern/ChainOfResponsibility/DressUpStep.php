@@ -8,7 +8,7 @@ namespace Delvesoft\DesignPattern\ChainOfResponsibility;
 
 class DressUpStep extends AbstractStep
 {
-    public function process(): void
+    public function process(HouseLeavingRequest $request): void
     {
         printf('Putting on clothes%s', PHP_EOL);
 
@@ -16,6 +16,6 @@ class DressUpStep extends AbstractStep
             return;
         }
 
-        $this->getNext()->process();
+        $this->getNext()->process($request);
     }
 }

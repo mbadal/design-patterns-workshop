@@ -6,6 +6,7 @@ use Delvesoft\DesignPattern\ChainOfResponsibility\DressUpStep;
 use Delvesoft\DesignPattern\ChainOfResponsibility\LockTheDoorStep;
 use Delvesoft\DesignPattern\ChainOfResponsibility\PutOnShoesStep;
 use Delvesoft\DesignPattern\ChainOfResponsibility\TurnOffLightsStep;
+use Delvesoft\DesignPattern\ChainOfResponsibility\HouseLeavingRequest;
 
 require_once 'vendor/autoload.php';
 
@@ -61,7 +62,9 @@ $chain1 = $dressUpStep->setNext(
         )
     )
 );
-$chain1->process();
+$chain1->process(
+    new HouseLeavingRequest()
+);
 //finally
 printf('House leaving successful%s', PHP_EOL);
 printf('--------%s%s', PHP_EOL, PHP_EOL);
@@ -74,20 +77,22 @@ $chain2 = $turnOffLightsStep->setNext(
     )
 );
 
-$chain2->process();
+$chain2->process(
+    new HouseLeavingRequest()
+);
 //finally
 printf('House leaving successful%s', PHP_EOL);
 printf('--------%s%s', PHP_EOL, PHP_EOL);
 
 $chain3 = $putOnShoesStep->setNext(
     $turnOffLightsStep->setNext(
-        $dressUpStep->setNext(
-            $lockTheDoorStep
-        )
+        $lockTheDoorStep
     )
 );
 
-$chain3->process();
+$chain3->process(
+    new HouseLeavingRequest()
+);
 //finally
 printf('House leaving successful%s', PHP_EOL);
 printf('--------%s%s', PHP_EOL, PHP_EOL);

@@ -8,7 +8,7 @@ namespace Delvesoft\DesignPattern\ChainOfResponsibility;
 
 class TurnOffLightsStep extends AbstractStep
 {
-    public function process(): void
+    public function process(HouseLeavingRequest $request): void
     {
         printf('Turning off the lights%s', PHP_EOL);
 
@@ -16,7 +16,7 @@ class TurnOffLightsStep extends AbstractStep
             return;
         }
 
-        $this->getNext()->process();
+        $this->getNext()->process($request);
     }
 
 }
