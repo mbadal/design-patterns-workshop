@@ -23,7 +23,7 @@ require_once 'vendor/autoload.php';
  *      - Vyuzite `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStep`.
  * Podmienky:
  *      - Ako zaklad pre handler triedy vyuzite abstraktnu triedu `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStep`
- *      - Nemente signaturu triedy `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStep`
+ *      - Nemente signaturu metody `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStep::process`
  * Vystup:
  *      Putting on clothes
  *      Turning off the lights
