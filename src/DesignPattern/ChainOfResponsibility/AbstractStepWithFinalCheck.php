@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace Delvesoft\DesignPattern\ChainOfResponsibility;
 
 
-abstract class AbstractStep
+abstract class AbstractStepWithFinalCheck
 {
     private ?AbstractStep $next = null;
 
@@ -17,7 +17,7 @@ abstract class AbstractStep
         return $this;
     }
 
-    public abstract function process(HouseLeavingRequest $request): void;
+    public abstract function process(HouseLeavingRequestWithFinalCheck $request): void;
 
     protected function hasNext(): bool
     {
