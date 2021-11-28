@@ -33,4 +33,11 @@ class HouseLeavingRequestWithFinalCheck
     {
         return $this->didYouPutOnShoes;
     }
+
+    public function areAllParametersSet(): bool
+    {
+        return (
+            $this->areLightsTurnedOff === true && $this->didYouPutOnClothes === true && $this->didYouPutOnShoes === true
+        );
+    }
 }
