@@ -17,6 +17,9 @@ require_once 'vendor/autoload.php';
  *          - Dezo je menej inteligentny    - najprv si obuje topanky, potom vypne svetla, oblecie sa a zamkne dvere
  *      Musime zabezpecit to, aby sme mali kontrolu nad tym, aby sa menej inteligentni klienti nedostali von bez toho, aby splnili vsetky
  *      podmienky - obliect sa, zhasnut svetla, obut si topanky -> tieto tri kroky su podmienkou zamknutia dveri.
+ * Podmienky:
+ *      - Ako zaklad pre handler triedy vyuzite abstraktnu triedu `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStepWithFinalCheck`
+ *      - Nemente signaturu metody `Delvesoft\DesignPattern\ChainOfResponsibility\AbstractStepWithFinalCheck::process`
  * Vystup:
  *      Putting on clothes
  *      Turning off the lights
