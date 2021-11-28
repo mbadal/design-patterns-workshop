@@ -12,7 +12,6 @@ class DressUp2Step extends AbstractStepWithFinalCheck
     {
         printf('Putting on clothes%s', PHP_EOL);
 
-
         $this->processNext(
             new HouseLeavingRequestWithFinalCheck(
                 $request->isAreLightsTurnedOff(),

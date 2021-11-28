@@ -10,6 +10,14 @@ class LockTheDoor2Step extends AbstractStepWithFinalCheck
 {
     public function process(HouseLeavingRequestWithFinalCheck $request): void
     {
-        printf('Locking the door%s', PHP_EOL);
+        if ($request->areAllParametersSet()) {
+            printf('Locking the door%s', PHP_EOL);
+
+            $this->processNext($request);
+        } else {
+            printf('Door was not locked, missing required steps%s', PHP_EOL);
+
+            throw new \LogicException();
+        }
     }
 }
