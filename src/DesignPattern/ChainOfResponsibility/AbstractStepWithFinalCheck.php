@@ -8,9 +8,9 @@ namespace Delvesoft\DesignPattern\ChainOfResponsibility;
 
 abstract class AbstractStepWithFinalCheck
 {
-    private ?AbstractStep $next = null;
+    private ?AbstractStepWithFinalCheck $next = null;
 
-    public function setNext(AbstractStep $next): self
+    public function setNext(AbstractStepWithFinalCheck $next): self
     {
         $this->next = $next;
 
@@ -24,7 +24,7 @@ abstract class AbstractStepWithFinalCheck
         return ($this->next !== null);
     }
 
-    protected function getNext(): ?AbstractStep
+    protected function getNext(): ?AbstractStepWithFinalCheck
     {
         return $this->next;
     }
