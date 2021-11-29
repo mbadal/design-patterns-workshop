@@ -17,6 +17,7 @@ require_once 'vendor/autoload.php';
  *      - Ako zaklad pre jednotlive handlery vyuzite `Delvesoft\DesignPattern\ChainOfResponsibility\LoginResolverInterface`. Nemente signaturu metody.
  *      - Vyuzite triedy `LoginRequest` a `LoginResponse`.
  *      - Logiku overovania prihlasenia mozte riesit cez TODO, resp. cez textovy vypis
+ *      - Vo vacsine pripadov dopredu nevieme, ktory handler je "ten spravny - vie spracovat poziadavku".
  *      - Rozsirte kod tak, aby bol mozny override sposobu prihlasenia - mame scenar, ked dopredu vieme, o aky typ registracie ide. Vtedy je zbytocne skusat vobec iny typ prihlasenia.
  * Vystup:
  *      --- Person1 ---
