@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\ChainOfResponsibility\LoginResponse;
+
 require_once 'vendor/autoload.php';
 
 
@@ -31,6 +33,32 @@ require_once 'vendor/autoload.php';
  *      --- Person3 ---
  *      User: [user3@profesia.sk] verified with: [LdapLoginResolver]. Override: [true]
  *      ---------------
+ *
+ *      --- Person4 ---
+ *      User: [user4@profesia.sk] was not verified
+ *      ---------------
  */
 
 //@todo
+
+function logResponse(LoginResponse $response, int $order) {
+    printf('--- Person%s ---%s', $order,PHP_EOL);
+
+    if ($response->isUserFound()) {
+        printf(
+            'User: [%s] verified with: [LocalLoginResolver]. Override: [%s]%s',
+            $response->getLogin(),
+            $response->wasOverride() ? 'true' : 'false',
+            PHP_EOL
+        );
+    } else {
+        printf(
+            'User: [%s] was not verified%s',
+            $response->getLogin(),
+            PHP_EOL
+        );
+    }
+
+    printf('---------------%s%s', PHP_EOL, PHP_EOL);
+}
+
