@@ -10,7 +10,7 @@ class LoginResponse
 {
 
     public function __construct(
-        private bool $userFound = false,
+        private bool $userFound,
         private string $login,
         private bool $wasOverride = false
     )
