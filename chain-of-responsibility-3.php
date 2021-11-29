@@ -96,3 +96,11 @@ $response = $chain->resolve(
     )
 );
 logResponse($response, 3);
+
+$response = $chain->resolve(
+    new LoginRequest(
+        'user4@profesia.sk',
+        'password4'
+    )
+);
+logResponse($response, 4);
