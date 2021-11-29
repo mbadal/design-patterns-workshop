@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+use Delvesoft\DesignPattern\ChainOfResponsibility\LoginRequest;
+use Delvesoft\DesignPattern\ChainOfResponsibility\LocalLoginResolver;
+use Delvesoft\DesignPattern\ChainOfResponsibility\LdapLoginResolver;
+use Delvesoft\DesignPattern\ChainOfResponsibility\LoginResponse;
+use Delvesoft\DesignPattern\ChainOfResponsibility\ResolverToUse;
+
 require_once 'vendor/autoload.php';
 
 
@@ -33,4 +39,46 @@ require_once 'vendor/autoload.php';
  *      ---------------
  */
 
-//@todo
+function logResponse(LoginResponse $response, int $order) {
+    printf('--- Person%s ---%s', $order,PHP_EOL);
+    printf(
+        'User: [%s] verified with: [LocalLoginResolver]. Override: [%s]%s',
+        $response->getLogin(),
+        $response->wasOverride() ? 'true' : 'false',
+        PHP_EOL
+    );
+    printf('---------------%s%s', PHP_EOL, PHP_EOL);
+}
+
+$localResolver = new LocalLoginResolver();
+$ldapResolver  = new LdapLoginResolver();
+
+$chain = $localResolver->setNext(
+    $ldapResolver
+);
+
+
+$response = $chain->resolve(
+    new LoginRequest(
+        'user1@profesia.sk',
+        'password1'
+    )
+);
+logResponse($response, 1);
+
+$response = $chain->resolve(
+    new LoginRequest(
+        'user2@profesia.sk',
+        'password2'
+    )
+);
+logResponse($response, 2);
+
+$response = $chain->resolve(
+    new LoginRequest(
+        'user3@profesia.sk',
+        'password3',
+        ResolverToUse::createLdap()
+    )
+);
+logResponse($response, 3);
