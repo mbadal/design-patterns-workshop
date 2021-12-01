@@ -14,6 +14,7 @@ require_once 'vendor/autoload.php';
  * Podmienky:
  *      - Nemente signaturu metody Calculator::caluclate
  *      - Riesenie implementujte do namespace `Delvesoft\DesignPattern\Strategy`
+ *      - AKo zaklad pre jednotlive srategie pouzitie interface `Delvesoft\DesignPattern\Strategy\MathOperationInterface`
  * Vystup:
  *  + operation result: [15]
  *  - operation result: [5]
