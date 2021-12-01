@@ -28,6 +28,11 @@ $a = 10;
 $b = 5;
 
 $calculator = new Calculator();
+$calculator->registerOperation('+', new \Delvesoft\DesignPattern\Strategy\PlusOperation());
+$calculator->registerOperation('-', new \Delvesoft\DesignPattern\Strategy\MinusOperation());
+$calculator->registerOperation('*', new \Delvesoft\DesignPattern\Strategy\TimesOperation());
+$calculator->registerOperation('/', new \Delvesoft\DesignPattern\Strategy\DivisionOperation());
+$calculator->registerOperation('^', new \Delvesoft\DesignPattern\Strategy\PowerOperation());
 
 printf("+ operation result: [%s] %s", $calculator->compute($a, $b, '+'), PHP_EOL);
 printf("- operation result: [%s] %s", $calculator->compute($a, $b, '-'), PHP_EOL);
