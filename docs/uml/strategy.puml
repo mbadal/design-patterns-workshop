@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam monochrome true
+
+interface BaseContract {
+    +method()
+}
+
+class Strategy1 {
+    +method()
+}
+
+class Strategy2 {
+    +method()
+}
+
+class Strategy3 {
+    +method()
+}
+
+class StrategyN {
+    +method()
+}
+
+BaseContract <|-- Strategy1
+BaseContract <|-- Strategy2
+BaseContract <|-- Strategy3
+BaseContract <|-- StrategyN
+
+@enduml
