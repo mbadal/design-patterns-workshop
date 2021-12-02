@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam monochrome true
+
+class SpecificRequest {
+}
+
+interface HandlerInterface {
+    +process(request: SpecificRequest)
+}
+
+abstract class AbstractHandler {
+    -next: HandlerInterface
+    #processNext(request: SpecificRequest)
+    +setNext(handler: HandlerInterface): self
+    +process(request: SpecificRequest)
+}
+
+class Handler1 {
+    #processNext(request: SpecificRequest)
+    +setNext(handler: HandlerInterface): self
+    +process(request: SpecificRequest)
+}
+
+class Handler2 {
+    #processNext(request: SpecificRequest)
+    +setNext(handler: HandlerInterface): self
+    +process(request: SpecificRequest)
+}
+
+class Handler3 {
+    #processNext(request: SpecificRequest)
+    +setNext(handler: HandlerInterface): self
+    +process(request: SpecificRequest)
+}
+
+HandlerInterface o-- SpecificRequest
+HandlerInterface <|.. AbstractHandler
+
+AbstractHandler <|-- Handler1
+AbstractHandler <|-- Handler2
+AbstractHandler <|-- Handler3
+
+note left of AbstractHandler::processNext
+    if (next === null) {
+        return;
+    }
+
+    next.process(request);
+end note
+
+@enduml
