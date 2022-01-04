@@ -20,9 +20,12 @@ class SquareCommand implements CommandInterface
 
     public function execute(): bool
     {
+        $result = ($this->a * $this->a);
         $this->calculator->updateResult(
-            $this->a * $this->a
+            $result
         );
+
+        printf("^2 operation result: [%s] %s", $result, PHP_EOL);
 
         return true;
     }

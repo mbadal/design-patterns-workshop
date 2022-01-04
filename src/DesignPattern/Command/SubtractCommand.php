@@ -19,9 +19,12 @@ class SubtractCommand implements CommandInterface
 
     public function execute(): bool
     {
+        $result = ($this->a - $this->b);
         $this->calculator->updateResult(
-            $this->a - $this->b
+            $result
         );
+
+        printf("- operation result: [%s] %s", $result, PHP_EOL);
 
         return true;
     }

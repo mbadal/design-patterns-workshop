@@ -14,16 +14,17 @@ class PowCommand implements CommandInterface
         private int $a,
         private int $b,
         private Calculator $calculator
-    )
-    {
-
+    ) {
     }
 
     public function execute(): bool
     {
+        $result = pow($this->a, $this->b);
         $this->calculator->updateResult(
-            pow($this->a, $this->b)
+            $result
         );
+
+        printf("^ operation result: [%s] %s", $result, PHP_EOL);
 
         return true;
     }

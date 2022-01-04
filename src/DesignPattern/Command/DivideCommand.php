@@ -21,9 +21,16 @@ class DivideCommand implements CommandInterface
 
     public function execute(): bool
     {
+        if ($this->b === 0) {
+            throw new \RuntimeException('Division by zero');
+        }
+
+        $result = ($this->a / $this->b);
         $this->calculator->updateResult(
             $this->a / $this->b
         );
+
+        printf("/ operation result: [%s] %s", $result, PHP_EOL);
 
         return true;
     }
