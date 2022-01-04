@@ -41,7 +41,7 @@ printf("* operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 $calculator->division($a, $b);
 printf("/ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->times($a, $b);
+$calculator->power($a, $b);
 printf("^ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->square($a);
