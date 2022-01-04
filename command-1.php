@@ -42,7 +42,6 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("+ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->executeCommand(
     new SubtractCommand(
@@ -51,7 +50,6 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("- operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->executeCommand(
     new TimesCommand(
@@ -60,7 +58,6 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("* operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->executeCommand(
     new DivideCommand(
@@ -69,7 +66,6 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("/ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->executeCommand(
     new PowCommand(
@@ -78,7 +74,6 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("^ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
 $calculator->executeCommand(
     new SquareCommand(
@@ -86,5 +81,3 @@ $calculator->executeCommand(
         $calculator
     )
 );
-printf("^2 operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
-

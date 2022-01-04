@@ -16,12 +16,16 @@ class Calculator
     {
         $this->result = ($a + $b);
 
+        printf("+ operation result: [%s] %s", $this->result, PHP_EOL);
+
         return true;
     }
 
     public function subtraction(int $a, int $b): bool
     {
         $this->result = ($a - $b);
+
+        printf("- operation result: [%s] %s", $this->result, PHP_EOL);
 
         return true;
     }
@@ -30,12 +34,16 @@ class Calculator
     {
         $this->result = ($a * $b);
 
+        printf("* operation result: [%s] %s", $this->result, PHP_EOL);
+
         return true;
     }
 
     public function square(int $a): bool
     {
         $this->result = ($a * $a);
+
+        printf("^2 operation result: [%s] %s", $this->result, PHP_EOL);
 
         return true;
     }
@@ -48,12 +56,16 @@ class Calculator
 
         $this->result = ($a / $b);
 
+        printf("/ operation result: [%s] %s", $this->result, PHP_EOL);
+
         return true;
     }
 
     public function power(int $a, int $b): bool
     {
         $this->result = pow($a, $b);
+
+        printf("^ operation result: [%s] %s", $this->result, PHP_EOL);
 
         return true;
     }
@@ -66,10 +78,5 @@ class Calculator
     public function executeCommand(CommandInterface $command): bool
     {
         return $command->execute();
-    }
-
-    public function getResult(): int
-    {
-        return $this->result;
     }
 }
