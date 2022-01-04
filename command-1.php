@@ -5,6 +5,12 @@ declare(strict_types=1);
 require_once 'vendor/autoload.php';
 
 use Delvesoft\Calculator\Calculator;
+use Delvesoft\DesignPattern\Command\SumCommand;
+use Delvesoft\DesignPattern\Command\SubtractCommand;
+use Delvesoft\DesignPattern\Command\TimesCommand;
+use Delvesoft\DesignPattern\Command\DivideCommand;
+use Delvesoft\DesignPattern\Command\PowCommand;
+use Delvesoft\DesignPattern\Command\SquareCommand;
 
 /**
  * Zadanie:
@@ -29,21 +35,56 @@ $b = 5;
 
 $calculator = new Calculator();
 
-$calculator->sum($a, $b);
+$calculator->executeCommand(
+    new SumCommand(
+        $a,
+        $b,
+        $calculator
+    )
+);
 printf("+ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->subtraction($a, $b);
+$calculator->executeCommand(
+    new SubtractCommand(
+        $a,
+        $b,
+        $calculator
+    )
+);
 printf("- operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->times($a, $b);
+$calculator->executeCommand(
+    new TimesCommand(
+        $a,
+        $b,
+        $calculator
+    )
+);
 printf("* operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->division($a, $b);
+$calculator->executeCommand(
+    new DivideCommand(
+        $a,
+        $b,
+        $calculator
+    )
+);
 printf("/ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->times($a, $b);
+$calculator->executeCommand(
+    new PowCommand(
+        $a,
+        $b,
+        $calculator
+    )
+);
 printf("^ operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
-$calculator->square($a);
+$calculator->executeCommand(
+    new SquareCommand(
+        $a,
+        $calculator
+    )
+);
 printf("^2 operation result: [%s] %s", $calculator->getResult(), PHP_EOL);
 
