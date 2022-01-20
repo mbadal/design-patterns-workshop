@@ -1,0 +1,46 @@
+ @startuml
+'https://plantuml.com/class-diagram
+
+skinparam monochrome true
+
+interface CommandInterface {
+    +execute(): void
+}
+
+class Command1 {
+    -receiver: Receiver
+    -params: array
+    +Command1(receiver: Receiver, params: array)
+    +execute(): void
+}
+
+class Command2 {
+    -param: string
+    +Command2(param: string)
+    +execute(): void
+}
+
+class Receiver {
+    +method1()
+    +method2()
+    +methodX()
+}
+
+class Invoker {
+    -commandHistory: array
+    +executeCommand(command: CommandInterface)
+}
+
+CommandInterface <--- Invoker
+
+CommandInterface <|.. Command1
+CommandInterface <|.. Command2
+
+Command1 o-- Receiver
+
+note left of Command1::execute
+    receiver.method1()
+    ...
+end note
+
+@enduml
