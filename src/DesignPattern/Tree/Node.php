@@ -12,7 +12,8 @@ class Node implements NodeInterface
     private ?NodeInterface $right = null;
 
     public function __construct(
-        private int $value
+        private int $value,
+        private ?NodeInterface $parent = null
     ) {
     }
 
@@ -39,5 +40,10 @@ class Node implements NodeInterface
     public function getRightSubTree(): ?NodeInterface
     {
         return $this->right;
+    }
+
+    public function getParent(): ?NodeInterface
+    {
+        return $this->parent;
     }
 }
