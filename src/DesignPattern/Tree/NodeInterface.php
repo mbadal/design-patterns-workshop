@@ -11,4 +11,5 @@ interface NodeInterface
     public function getValue(): int;
     public function getLeftSubTree(): ?NodeInterface;
     public function getRightSubTree(): ?NodeInterface;
+    public function getParent(): ?NodeInterface;
 }
