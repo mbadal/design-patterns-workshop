@@ -10,37 +10,48 @@ use Iterator;
 
 class InOrderBinaryTreeIterator implements Iterator
 {
-    private NodeInterface $actual;
+    private int $index = 0;
 
-    public function __construct(
-        private NodeInterface $root
-    )
-    {
-        $this->actual = $root;
+    /** @var NodeInterface[] */
+    private array $visitedNodes = [];
+
+    public function __construct(NodeInterface $root) {
+        $this->visit($root);
     }
 
     public function current(): NodeInterface
     {
-
+        return $this->visitedNodes[$this->index];
     }
 
-    public function next()
+    public function next(): void
     {
-        // TODO: Implement next() method.
+        $this->index++;
     }
 
-    public function key()
+    public function key(): int
     {
-        return $this->actual->getValue();
+        return $this->index;
     }
 
-    public function valid()
+    public function valid(): bool
     {
-        // TODO: Implement valid() method.
+        return ($this->index < sizeof($this->visitedNodes));
     }
 
-    public function rewind()
+    public function rewind(): void
     {
-        $this->actual = $this->root;
+        $this->index = 0;
+    }
+
+    private function visit(?NodeInterface $tree = null): void
+    {
+        if ($tree === null) {
+            return;
+        }
+
+        $this->visit($tree->getLeftSubTree());
+        $this->visitedNodes[] = $tree;
+        $this->visit($tree->getRightSubTree());
     }
 }
