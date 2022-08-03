@@ -65,10 +65,10 @@ $g->setRight($i);
 $h = new Node(80);
 $i->setLeft($h);
 
-/**
- * @todo Create iterator
- *
- *foreach ($iterator as $item) {
- *   echo $item->getValue(), PHP_EOL;
- *}
- */
+$iterator = new \Delvesoft\DesignPattern\Iterator\InOrderBinaryTreeIterator(
+    $f
+);
+
+foreach ($iterator as $node) {
+    echo $node->getValue(), PHP_EOL;
+}
