@@ -50,10 +50,17 @@ $array =
         'xyz'     => 29,
     ];
 
-/**$iterator = new ValueIterator(
+$iterator1 = new \Delvesoft\DesignPattern\Iterator\KeyIterator(
     $array
-);*/
+);
+$iterator2 = new \Delvesoft\DesignPattern\Iterator\ValueIterator(
+    $array
+);
 
-/**foreach ($iterator as $item) {
+foreach ($iterator1 as $item) {
     echo $item, PHP_EOL;
-}*/
+}
+echo '------------------------', PHP_EOL;
+foreach ($iterator2 as $item) {
+    echo $item, PHP_EOL;
+}
