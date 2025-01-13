@@ -14,7 +14,7 @@ require 'vendor/autoload.php';
  * - Podmienky:
  *      - nesmiete zasiahnut do rozhrania existujucich objektov v nemespace 'Delvesoft\Sandwich'
  *      - vsetky vase triedy implementujte do 'Delvesoft\DesignPattern\Builder'
- *      - Pozadovany vustup po spusteni builder.php:
+ *      - Pozadovany vystup po spusteni builder.php:
  *          Sandwich: Teriyaki chicken; Cheddar; Tomato, Pepper
  *          Sandwich: Tuna; Gouda; Olives
  *          Sandwich: Beef
