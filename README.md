@@ -9,12 +9,12 @@ cd ./docker
 After that, you can run PHP scripts with the command:
 ```bash
 
-#PHP scripts
+#Run PHP scripts
 ./ops php
 
 # OR
 
-#ANY bash command
+#Run ANY bash command
 ./ops bash
 
 # OR
