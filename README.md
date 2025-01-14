@@ -6,7 +6,7 @@ Set up the project by running the commands:
 cd ./docker
 ./ops up -d
 ```
-After that, you can run PHP scripts with the command:
+After that, you can run PHP and bash scripts with the command:
 ```bash
 
 #Run PHP scripts
@@ -21,6 +21,16 @@ After that, you can run PHP scripts with the command:
 
 #Log in directly to container
 ./ops container bash
+```
+
+First, install the required dependencies (and dump autoload)
+```bash
+./ops composer install
+
+# OR
+
+./ops container bash
+composer install  
 ```
 
 ## Author
