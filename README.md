@@ -25,7 +25,7 @@ After that, you can run PHP and bash scripts with the command:
 
 First, install the required dependencies (and dump autoload)
 ```bash
-./ops composer install
+./ops bash composer install
 
 # OR
 
