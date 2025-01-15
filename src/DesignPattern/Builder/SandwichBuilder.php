@@ -57,7 +57,7 @@ class SandwichBuilder
     /**
      * @return SandwichInterface
      */
-    public function sellSandwich(): SandwichInterface
+    public function build(): SandwichInterface
     {
         if ($this->ingredients === []) {
             throw new \RuntimeException('No ingredients');

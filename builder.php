@@ -31,20 +31,20 @@ try {
         ->addVegetable(new \Delvesoft\Sandwich\Ingredient\Vegetable\Tomato())
         ->addVegetable(new \Delvesoft\Sandwich\Ingredient\Vegetable\Pepper())
         ->setCheese(new \Delvesoft\Sandwich\Ingredient\Cheese\Cheddar());
-    echo $builder->sellSandwich()->getIngredientsList(), "\n";
+    echo $builder->build()->getIngredientsList(), "\n";
 
     $builder
         ->startPreparation()
         ->setMainIngredient(new \Delvesoft\Sandwich\Ingredient\Main\Tuna())
         ->addVegetable(new \Delvesoft\Sandwich\Ingredient\Vegetable\Olives())
         ->setCheese(new \Delvesoft\Sandwich\Ingredient\Cheese\Gouda());
-    echo $builder->sellSandwich()->getIngredientsList(), "\n";
+    echo $builder->build()->getIngredientsList(), "\n";
 
     $builder
         ->startPreparation()
         ->setMainIngredient(new \Delvesoft\Sandwich\Ingredient\Main\Beef());
 
-    echo $builder->sellSandwich()->getIngredientsList(), "\n";
+    echo $builder->build()->getIngredientsList(), "\n";
 } catch (Exception $e) {
     error_log($e->getMessage());
 }
